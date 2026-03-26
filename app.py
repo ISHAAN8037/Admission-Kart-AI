@@ -169,7 +169,7 @@ def check_matchmaker():
     Return ONLY valid JSON without Markdown blocks.
     """
     try:
-        model = genai.GenerativeModel('gemini-1.5-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash')
         response = model.generate_content(prompt)
         text = response.text.strip()
         if text.startswith("```json"):
@@ -286,7 +286,7 @@ def create_lead():
         If they mentioned a specific school (like IIM Ahmedabad or Harvard) in the course text, adapt the questions (e.g. case study for IIM).
         Provide only a valid JSON array of strings containing the 3 questions.
         """
-        model = genai.GenerativeModel('gemini-1.5-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash')
         response = model.generate_content(prompt)
         text = response.text.strip()
         if text.startswith("```json"):
@@ -349,7 +349,7 @@ def chat_agent():
         mode = "SCHOLAR"
 
     try:
-        model = genai.GenerativeModel('gemini-1.5-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash')
         prompt = f"{CONSULTANT_SYSTEM_PROMPT}\n\nCURRENT MODE: {mode}\nUSER QUERY: {message}\n\nRespond as the Elite Admission Architect."
         
         response = model.generate_content(prompt)
@@ -434,7 +434,7 @@ def roi_battle_comparison():
     Return only the 3 sentences.
     """
     try:
-        model = genai.GenerativeModel('gemini-1.5-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash')
         response = model.generate_content(prompt)
         verdict = response.text.strip()
     except Exception as e:
