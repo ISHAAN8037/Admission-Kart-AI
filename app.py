@@ -305,49 +305,69 @@ def create_lead():
         "interview_prep": interview_questions
     }), 201
 
+CONSULTANT_SYSTEM_PROMPT = """
+You are the "Elite Admission Architect" for Admission Kart. Your goal is to provide hyper-personalized, data-backed consultancy that feels like a $500/hour human expert.
+
+### CORE OPERATING MODES:
+1. [MODE: PREDICTOR] -> Input: {GPA, Test Scores, University}. 
+   - Task: Calculate a 'Match Score' (0-100%). Rule: Be realistic. 
+   - Output: Match %, Pros, Cons, and 1 "Actionable Boost".
+
+2. [MODE: ANALYZER] -> Input: {SOP/Resume Text}. 
+   - Task: Conduct a "Narrative Audit." Look for 'Passive Voice', 'Clichés'.
+   - Output: 1-10 Strength Score and a "Critique Table" with [Current Sentence] vs [Proposed Elite Version].
+
+3. [MODE: PATHFINDER] -> Input: {Target Country, Current Month}. 
+   - Task: Generate a "High-Pressure Timeline." 
+   - Output: Markdown list of what to do in the next 30, 60, and 90 days.
+
+4. [MODE: SCHOLAR] -> Input: {User Background}. 
+   - Task: Identify "Niche Scholarships".
+
+### GLOBAL CONSTRAINTS:
+- Use Professional "Consultancy Speak" (e.g., "Strategic Alignment", "Quantitative Benchmark").
+- Every response must include one specific fact about the target country or university.
+- Always end with a "Next Strategic Step."
+- Return all data in clean Markdown.
+"""
+
 @app.route('/api/chat', methods=['POST'])
 def chat_agent():
-    """Agentic Memory Layer with automated dynamic scholarship parsing."""
+    """Elite Admission Architect: AI Agentic Layer"""
     data = request.json
-    message = data.get('message', '').lower()
+    message = data.get('message', '')
     
-    reply = "I'm your Admission Kart AI Guide! How can I help you today?"
-    recommended_unis = []
-    
-    # Agentic Context Injection (Contextual Follow up memory check)
-    if 'scholarship' in message and session.get('last_context_uni_id'):
-        target_uni = UniversityModel.query.get(session.get('last_context_uni_id'))
-        if target_uni:
-            return jsonify({
-                "reply": f"Absolutely! Since we were just talking about {target_uni.name}, here are their specific funding programs:\n\n{target_uni.scholarships}",
-                "recommendations": []
-            })
+    # Detect Mode based on trigger words
+    mode = "GENERAL"
+    if any(k in message.lower() for k in ['predict', 'gpa', 'score', 'match']):
+        mode = "PREDICTOR"
+    elif any(k in message.lower() for k in ['sop', 'essay', 'resume', 'audit', 'analyze']):
+        mode = "ANALYZER"
+    elif any(k in message.lower() for k in ['timeline', 'roadmap', 'apply', 'when']):
+        mode = "PATHFINDER"
+    elif any(k in message.lower() for k in ['scholarship', 'funding', 'money', 'free']):
+        mode = "SCHOLAR"
+
+    try:
+        model = genai.GenerativeModel('gemini-1.5-pro')
+        prompt = f"{CONSULTANT_SYSTEM_PROMPT}\n\nCURRENT MODE: {mode}\nUSER QUERY: {message}\n\nRespond as the Elite Admission Architect."
+        
+        response = model.generate_content(prompt)
+        reply = response.text.strip()
+        
+        # Contextual Recommendation Logic (Existing)
+        recommended_unis = []
+        if 'germany' in message.lower() or 'tum' in message.lower():
+            unis = UniversityModel.query.filter(UniversityModel.location.ilike('%germany%')).limit(1).all()
+            recommended_unis = [u.serialize() for u in unis]
             
-    if any(word in message for word in ['hi', 'hello', 'hey']):
-        reply = "Hello! 👋 I am the AI Guidance Agent. To calculate your personalized ROI pathways, are you interested in STEM, Business, Law, or Medicine?"
-    elif 'engineering' in message or 'btech' in message or 'stem' in message:
-        reply = "Engineering holds exceptional ROI right now. We track premium programs globally. Is budget a constraint, or are you prioritizing pure prestige?"
-        unis = UniversityModel.query.filter(UniversityModel.tags.contains('engineering')).limit(2).all()
-        recommended_unis = [u.serialize() for u in unis]
-    elif 'medicine' in message or 'mbbs' in message:
-        reply = "MBBS requires extensive dedicated focus. India and European pathways offer differing ROIs. Here are absolutely top-tier medical institutions:"
-        unis = UniversityModel.query.filter(UniversityModel.tags.contains('medicine')).limit(2).all()
-        recommended_unis = [u.serialize() for u in unis]
-    elif 'india' in message:
-        reply = "India offers fantastic and highly affordable education. Here are some of our top partner options:"
-        unis = UniversityModel.query.filter(UniversityModel.location.ilike('%india%')).all()
-        recommended_unis = [u.serialize() for u in unis]
-    elif 'cheap' in message or 'budget' in message or 'scholarship' in message or 'cost' in message or 'tuition' in message:
-        reply = "I completely understand that budget is critical for ROI. I highly recommend looking at AIIMS New Delhi (Tuition: ~$100) for Medicine, or the DAAD Scholarship for fully-funded study in Germany. Here are some of our top subsidized/scholarship institutions:"
-        unis = UniversityModel.query.filter(UniversityModel.tuition < 10000).all()
-        for u in unis:
-            if 'Germany' in u.location and u.scholarships and 'DAAD' in u.scholarships:
-                u.description = f"[High ROI Match - DAAD Scholarship Available] {u.description}"
-            if u.tuition and u.tuition <= 500:
-                u.description = f"[Ultra-Low Tuition: ${u.tuition}] {u.description}"
-                
-        recommended_unis = [u.serialize() for u in unis]
-    elif 'europe' in message or 'germany' in message or 'uk' in message:
+        return jsonify({
+            "reply": reply,
+            "recommendations": recommended_unis
+        })
+    except Exception as e:
+        print(f"Architect Error: {e}")
+        return jsonify({"reply": "I am currently optimizing my Strategic Alignment algorithms. Please try again in a moment.", "recommendations": []})
         reply = "Studying in Europe offers exceptional quality of life and Schengen mobility. Germany in particular dominates affordable STEM."
         unis = UniversityModel.query.filter(db.or_(UniversityModel.location.ilike('%germany%'), UniversityModel.location.ilike('%uk%'), UniversityModel.location.ilike('%france%'))).limit(3).all()
         recommended_unis = [u.serialize() for u in unis]
