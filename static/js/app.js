@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchUniversities() {
         try {
-            const res = await fetch('https://shy-vans-press.loca.lt/api/universities');
+            const res = await fetch('/api/universities');
             if(!res.ok) throw new Error("Static Host Detection");
             universities = await res.json();
             renderUniversities(universities);
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = searchBtn.innerHTML;
             searchBtn.innerHTML = 'Thinking...';
             try {
-                const res = await fetch('https://shy-vans-press.loca.lt/api/search', {
+                const res = await fetch('/api/search', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json'
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBody.scrollTop = chatBody.scrollHeight;
 
         try {
-            const res = await fetch('https://shy-vans-press.loca.lt/api/chat', {
+            const res = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: text })
@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             try {
-                const res = await fetch('https://shy-vans-press.loca.lt/api/leads', {
+                const res = await fetch('/api/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, course })
