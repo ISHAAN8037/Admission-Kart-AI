@@ -82,6 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
             tuition: "2,500",
             description: "Indian Institute of Technology Bombay is the premier institution for engineering in India, attracting the highest rankers in the JEE Advanced every year.",
             scholarships: "MHRD Merit Scholarships, IIT Bombay Alumni Association Awards."
+        },
+        { 
+            id: "u12", 
+            name: "Manipal Academy of Higher Education", 
+            location: "India", 
+            image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000", 
+            value_score: 89, 
+            tags: "india private medical engineering manipal", 
+            tuition: "5,000 - 8,000",
+            description: "MAHE is a synonymous name for excellence in private higher education in India, especially known for its medical and engineering programs.",
+            scholarships: "MAHE Merit Scholarship, Freeship for top rankers."
         }
     ];
 
@@ -103,6 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!uniListContainer) return;
         uniListContainer.innerHTML = '';
         dataToRender = dataToRender || universities;
+
+        if (dataToRender.length === 0) {
+            uniListContainer.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1; padding: 60px 20px;">
+                    <i class="ph ph-magnifying-glass" style="font-size: 3rem; color: var(--border-dark); margin-bottom: 16px;"></i>
+                    <h4>No universities match your search</h4>
+                    <p style="color: var(--text-muted);">Try a different keyword or explore our top picks below.</p>
+                    <button class="btn btn-outline" onclick="location.reload()" style="margin-top: 15px;">Clear Search</button>
+                </div>
+            `;
+            return;
+        }
         
         dataToRender.forEach(uni => {
             const isShortlisted = shortlist.some(item => item.id === uni.id);
