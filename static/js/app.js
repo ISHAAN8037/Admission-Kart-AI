@@ -211,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ query })
+                });
                 if(!res.ok) throw new Error("Static Host");
                 const results = await res.json();
                 renderUniversities(results);
