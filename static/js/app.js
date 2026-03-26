@@ -425,24 +425,23 @@ document.addEventListener('DOMContentLoaded', () => {
      * Operates when the live API is unreachable (e.g. static hosting).
      */
     function runAiSimulation(text) {
-        const prompt = text.toLowerCase();
         let reply = "";
-        let recs = [];
-
+        const promptText = text.toLowerCase();
+        
         // 1. PREDICTOR MODE SIMULATION
-        if (prompt.includes("match") || prompt.includes("score") || (prompt.includes("gpa") && prompt.includes("sat"))) {
-            const gpa = prompt.match(/\d\.\d/) || ["3.8"];
-            const sat = prompt.match(/\d{4}/) || ["1500"];
-            const uni = prompt.includes("stanford") ? "Stanford University" : "your target institution";
+        if (promptText.includes("match") || promptText.includes("score") || (promptText.includes("gpa") && (promptText.includes("sat") || promptText.includes("high")))) {
+            const gpaMatch = promptText.match(/\d\.\d/) || ["3.8"];
+            const satMatch = promptText.match(/\d{4}/) || ["1500"];
+            const uni = promptText.includes("stanford") ? "Stanford University" : "your target institution";
             
-            reply = `### STRATEGIC ALIGNMENT AUDIT: ${uni.toUpperCase()}\n\n| Metric | Input | Alignment |\n| :--- | :--- | :--- |\n| Academic GPA | ${gpa} | **Strong** |\n| Standardized Test | ${sat} | **Competitive** |\n| Institutional Fit | High | **Target** |\n\n**Architect's Pros:** Your quantitative benchmarks establish a robust foundation for this tier. \n\n**Architect's Cons:** The hyper-competitive landscape at ${uni} requires a more distinctive "Intellectual Spike" in your extracurricular profile.\n\n**Next Strategic Move:** Elevate your SOP narrative to highlight specialized research over general volunteering.`;
+            reply = `### STRATEGIC ALIGNMENT AUDIT: ${uni.toUpperCase()}\n\n| Metric | Input | Alignment |\n| :--- | :--- | :--- |\n| Academic GPA | ${gpaMatch[0]} | **Strong** |\n| Standardized Test | ${satMatch[0]} | **Competitive** |\n| Institutional Fit | High | **Target** |\n\n**Architect's Pros:** Your quantitative benchmarks establish a robust foundation for this tier. \n\n**Architect's Cons:** The hyper-competitive landscape at ${uni} requires a more distinctive "Intellectual Spike" in your extracurricular profile.\n\n**Next Strategic Move:** Elevate your SOP narrative to highlight specialized research over general volunteering.`;
         } 
         // 2. ANALYZER MODE SIMULATION
-        else if (prompt.includes("sop") || prompt.includes("essay") || prompt.includes("resume") || prompt.includes("audit")) {
+        else if (promptText.includes("sop") || promptText.includes("essay") || promptText.includes("resume") || promptText.includes("audit")) {
             reply = `### NARRATIVE AUDIT: PHASE 1\n\n**Strength Score: 7.2/10**\n\n| Original Segment | Architect's Elite Revision |\n| :--- | :--- | \n| "I have always wanted to study btech because..." | "My pursuit of Engineering is driven by a focus on scalable infrastructure ROIs..." |\n\n**Architect's Insight:** You are currently over-utilizing the "Passive Voice." This dilutes your perceived ownership of past projects.\n\n**Next Strategic Move:** Re-write your "Research" section using impact-focused verbs.`;
         }
         // 3. PATHFINDER MODE SIMULATION
-        else if (prompt.includes("month") || prompt.includes("timeline") || prompt.includes("when") || prompt.includes("days")) {
+        else if (promptText.includes("month") || promptText.includes("timeline") || promptText.includes("when") || promptText.includes("days")) {
             reply = `### SPRINT TIMELINE: 90-DAY HIGH-PRESSURE ROADMAP\n\n- **Next 30 Days:** Finalize LOR drafting and secure academic sponsors. Ensure "Strategic Fit" in all outreach.\n- **Next 60 Days:** Portfolio Diversification—begin drafting your "Statement of Purpose" v2.\n- **Next 90 Days:** Submission Window. Execute pre-interview quantitative drills.\n\n**Architect's Note:** The early bird occupies the premium funding slots. \n\n**Next Strategic Move:** Request your transcripts this week to avoid administrative bottlenecks.`;
         }
         // 4. GENERAL ARCHITECT MODE
@@ -451,6 +450,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         appendMessage(reply, false);
+    }
+
+    /**
+     * SATELLITE ROADMAP ARCHITECT: High-fidelity Roadmap Simulation
+     */
+    function runRoadmapSimulation(location) {
+        const locLower = (location || "Global").toLowerCase();
+        let roadmap = [];
+        
+        if (locLower.includes('germany')) {
+            roadmap = [
+                {step: 1, action: "Language Benchmark", desc: "Clear Goethe Zertifikat B1/B2 (if pursuing German track)."},
+                {step: 2, action: "APS Certification", desc: "Submit academic documents to APS India for authenticity verification."},
+                {step: 3, action: "TestAS Examination", desc: "Take the standard TestAS for analytical aptitude scaling."},
+                {step: 4, action: "Uni-Assist Application", desc: "Send final dossiers through the central Uni-Assist pipeline."},
+                {step: 5, action: "Blocked Account Setup", desc: "Transfer ~11,208 EUR to Expatrio/Fintiba for living guarantees."},
+                {step: 6, action: "Visa Enrollment", desc: "VFS Global biometrics and final student visa issuance."}
+            ];
+        } else if (locLower.includes('usa')) {
+            roadmap = [
+                {step: 1, action: "Standardized Testing", desc: "Achieve target scores on SAT/ACT or GRE/GMAT depending on level."},
+                {step: 2, action: "English Proficiency", desc: "Clear TOEFL iBT (90+) or IELTS Academic (7.0+)."},
+                {step: 3, action: "Common App & Essays", desc: "Draft compelling SOPs and coordinate 2-3 Letters of Recommendation."},
+                {step: 4, action: "University Portals", desc: "Submit CSS profiles for financial aid alongside major applications."},
+                {step: 5, action: "I-20 Form Processing", desc: "Demonstrate liquid financial backing to university to secure immigration docs."},
+                {step: 6, action: "F1 Visa Interview", desc: "Book US Embassy slot and defend non-immigrant intent."}
+            ];
+        } else if (locLower.includes('india')) {
+            roadmap = [
+                {step: 1, action: "Entrance Prep", desc: "Rigorous coaching for JEE (Engineering), NEET (Medical), or CLAT (Law)."},
+                {step: 2, action: "Examination", desc: "Sit for national or state-level entrance benchmarks."},
+                {step: 3, action: "Counseling Rounds", desc: "Participate in JoSAA/MCC online seat allocation processes."},
+                {step: 4, action: "Document Verification", desc: "Physical submittal of 10+2 boards and localized domicile certificates."},
+                {step: 5, action: "Fee Payment & Induction", desc: "Secure the allotted seat physically and commence classes."}
+            ];
+        } else {
+            roadmap = [
+                {step: 1, action: "Profile Evaluation", desc: "Finalize destination budget and course alignment."},
+                {step: 2, action: "Document Preparation", desc: "Compile Transcripts, LORs, and standardized testing records."},
+                {step: 3, action: "Application Submission", desc: "Apply directly or via generalized global portals."},
+                {step: 4, action: "Visa & Logistics", desc: "Finalize immigration paperwork and housing contracts."}
+            ];
+        }
+
+        const roadmapTimeline = document.getElementById('roadmap-timeline');
+        const roadmapContainer = document.getElementById('roadmap-container');
+        const btnGenerateRoadmap = document.getElementById('generate-roadmap-btn');
+
+        if(roadmapTimeline) {
+            let roadmapHTML = roadmap.map(step => `
+                <div class="timeline-step" style="text-align: left; padding: 10px 0;">
+                    <div class="step-number" style="width: 25px; height: 25px; font-size: 0.8rem; margin: 0; background: var(--accent-gold); color: #1a1f36;">${step.step}</div>
+                    <h4 style="font-size: 1.05rem; margin-top: 5px;">${step.action}</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">${step.desc}</p>
+                </div>
+            `).join('');
+            
+            roadmapTimeline.innerHTML = roadmapHTML;
+            if(roadmapContainer) roadmapContainer.style.display = 'block';
+            if(btnGenerateRoadmap) btnGenerateRoadmap.style.display = 'none';
+        }
     }
 
     if (sendChatBtn) sendChatBtn.addEventListener('click', sendChatMessage);
@@ -560,10 +620,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     roadmapTimeline.innerHTML = roadmapHTML;
                     roadmapContainer.style.display = 'block';
                     btnGenerateRoadmap.style.display = 'none'; // Hide button once compiled
+                } else {
+                    throw new Error("API failure");
                 }
             } catch (err) {
-                console.error("Failed to fetch roadmap:", err);
-                btnGenerateRoadmap.innerHTML = 'Error Generating Roadmap';
+                console.warn("Switching to Satellite Roadmap Architect for", currentRoadmapLocation);
+                runRoadmapSimulation(currentRoadmapLocation);
             }
         });
     }
