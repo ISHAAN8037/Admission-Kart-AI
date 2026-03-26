@@ -1,0 +1,35 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Build Dependencies
+        run: |
+          pip install Flask Flask-SQLAlchemy
+
+      - name: Build Static Site
+        run: |
+          python3 build_netlify.py
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: netlify_dist # The folder the action should deploy.
+          branch: gh-pages # The branch the action should deploy to.

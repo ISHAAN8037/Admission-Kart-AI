@@ -1,4 +1,4 @@
-# Admission Kart AI 🎓🤖
+# Admission Kart AI 🎓🤖 [(Live Demo)](https://ISHAAN8037.github.io/Admission-Kart-AI)
 
 **Admission Kart** is a professional-grade educational consultancy platform evolved into a full-stack AI-driven service. It features advanced ROI engines, agentic conversational memory, and native voice capabilities.
 

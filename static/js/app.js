@@ -15,13 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const uniListContainer = document.getElementById('university-list');
     let shortlist = JSON.parse(localStorage.getItem('admissionKart_shortlist')) || [];
 
+    // ---- 2.b AI Simulation Data (Fallback for GitHub Pages) ----
+    const mockUniversities = [
+        { id: "u1", name: "Technical University of Munich", location: "Germany", image: "https://picsum.photos/seed/u1/800/600", value_score: 95, tags: "engineering europe germany", scholarships: "DAAD" },
+        { id: "u2", name: "MIT Manipal", location: "India", image: "https://picsum.photos/seed/u2/800/600", value_score: 82, tags: "engineering india technology" },
+        { id: "u3", name: "University of Toronto", location: "Canada", image: "https://picsum.photos/seed/u3/800/600", value_score: 88, tags: "canada research global" },
+        { id: "u6", name: "Harvard University", location: "USA", image: "https://picsum.photos/seed/u6/800/600", value_score: 91, tags: "usa ivy league prestigious" },
+        { id: "u11", name: "IIT Bombay", location: "India", image: "https://picsum.photos/seed/u11/800/600", value_score: 98, tags: "engineering india mumbai top" }
+    ];
+
     async function fetchUniversities() {
         try {
             const res = await fetch('/api/universities');
+            if(!res.ok) throw new Error("Static Host Detection");
             universities = await res.json();
             renderUniversities(universities);
         } catch (e) {
-            console.error("Failed to load universities", e);
+            console.warn("Using Simulation Mode (No Backend Found)");
+            universities = mockUniversities;
+            renderUniversities(universities);
         }
     }
 
