@@ -17,11 +17,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- 2.b AI Simulation Data (Fallback for GitHub Pages) ----
     const mockUniversities = [
-        { id: "u1", name: "Technical University of Munich", location: "Germany", image: "https://picsum.photos/seed/u1/800/600", value_score: 95, tags: "engineering europe germany", scholarships: "DAAD" },
-        { id: "u2", name: "MIT Manipal", location: "India", image: "https://picsum.photos/seed/u2/800/600", value_score: 82, tags: "engineering india technology" },
-        { id: "u3", name: "University of Toronto", location: "Canada", image: "https://picsum.photos/seed/u3/800/600", value_score: 88, tags: "canada research global" },
-        { id: "u6", name: "Harvard University", location: "USA", image: "https://picsum.photos/seed/u6/800/600", value_score: 91, tags: "usa ivy league prestigious" },
-        { id: "u11", name: "IIT Bombay", location: "India", image: "https://picsum.photos/seed/u11/800/600", value_score: 98, tags: "engineering india mumbai top" }
+        { 
+            id: "u1", 
+            name: "Technical University of Munich", 
+            location: "Germany", 
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000", 
+            value_score: 95, 
+            tags: "engineering europe germany", 
+            tuition: "0 - 1,500",
+            description: "TUM is a leading research university in Europe, known for its excellence in engineering, natural sciences, and technology. It maintains a strong ROI due to Germany's low-to-zero tuition model.",
+            scholarships: "DAAD Global Excellence Scholarship, Deutschlandstipendium."
+        },
+        { 
+            id: "u2", 
+            name: "Stanford University", 
+            location: "USA", 
+            image: "https://images.unsplash.com/photo-1581291417004-63858a183669?auto=format&fit=crop&q=80&w=1000", 
+            value_score: 98, 
+            tags: "usa ivy elite technology", 
+            tuition: "55,000",
+            description: "Located in the heart of Silicon Valley, Stanford is a global leader in innovation and entrepreneurship. It offers unparalleled networking opportunities and research facilities.",
+            scholarships: "Knight-Hennessy Scholars, Stanford Financial Aid (Need-Based)."
+        },
+        { 
+            id: "u3", 
+            name: "University of Toronto", 
+            location: "Canada", 
+            image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&q=80&w=1000", 
+            value_score: 88, 
+            tags: "canada research global", 
+            tuition: "45,000",
+            description: "Canada's #1 research university, UofT offers a diverse academic environment and is consistently ranked among the world's best for graduate employability.",
+            scholarships: "Lester B. Pearson International Scholarship, Ontario Graduate Scholarship."
+        },
+        { 
+            id: "u6", 
+            name: "Harvard University", 
+            location: "USA", 
+            image: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&q=80&w=1000", 
+            value_score: 91, 
+            tags: "usa ivy prestigious", 
+            tuition: "58,000",
+            description: "As the oldest institution of higher learning in the United States, Harvard is synonymous with prestige, academic rigor, and a powerful global alumni network.",
+            scholarships: "Harvard University Financial Aid (100% Need-Blind for International)."
+        },
+        { 
+            id: "u11", 
+            name: "IIT Bombay", 
+            location: "India", 
+            image: "https://images.unsplash.com/photo-1592066415435-4221c1b4ca6c?auto=format&fit=crop&q=80&w=1000", 
+            value_score: 98, 
+            tags: "engineering india mumbai top", 
+            tuition: "2,500",
+            description: "Indian Institute of Technology Bombay is the premier institution for engineering in India, attracting the highest rankers in the JEE Advanced every year.",
+            scholarships: "MHRD Merit Scholarships, IIT Bombay Alumni Association Awards."
+        }
     ];
 
     async function fetchUniversities() {
