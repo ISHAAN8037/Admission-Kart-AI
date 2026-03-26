@@ -65,7 +65,13 @@ def ai_search():
     query = data.get('query', '').lower()
     
     if not query:
-        return jsonify([u.serialize() for u in UniversityModel.query.all()])
+        unis = UniversityModel.query.all()
+        results = []
+        for u in unis:
+            s = u.serialize()
+            s['value_score'] = get_roi_score(u)
+            results.append(s)
+        return jsonify(results)
         
     keywords = query.split()
     results = []

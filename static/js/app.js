@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('university-list').scrollIntoView({ behavior: 'smooth' });
             } catch (e) {
                 console.error("AI Search failed", e);
+                alert("AI Search Connectivity Issue: Ensure your local server is running on http://127.0.0.1:5001, or deploy the backend to an HTTPS server (like Render) for the Netlify preview to work.");
             } finally {
                 searchBtn.innerHTML = originalText;
             }
