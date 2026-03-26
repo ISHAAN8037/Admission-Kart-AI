@@ -1,0 +1,27 @@
+# Environments
+.env
+venv/
+env/
+.venv/
+auth_token.txt
+
+# Databases
+admission_kart.db
+*.sqlite3
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Distribution / Build
+netlify_dist/
+node_modules/
+.DS_Store
+
+# Logs
+flask.log
+flask_run.log
+*.log
+
+# VS Code
+.vscode/

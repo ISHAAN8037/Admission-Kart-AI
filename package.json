@@ -1,0 +1,11 @@
+{
+  "name": "admission-kart",
+  "version": "1.0.0",
+  "description": "Flask backend for Admission Kart",
+  "scripts": {
+    "dev": "source venv/bin/activate && python3 app.py",
+    "install-deps": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt"
+  },
+  "author": "Admission Kart",
+  "license": "ISC"
+}

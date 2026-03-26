@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Kart - Your Global Gateway to Higher Education</title>
+    <!-- Localized SEO Meta Tags -->
+    <meta name="description" content="Admission Kart offers free career counseling, studying abroad programs, MBBS in India, Engineering in Germany, and scholarship guidance.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=2">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="#" class="logo">
+                <i class="ph ph-graduation-cap"></i>
+                <span>Admission <strong>Kart</strong></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#trust">Success Stories</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="cart-btn" id="shortlist-btn" aria-label="View Shortlist">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-counter" id="cart-counter">0</span>
+                </button>
+                <a href="#" class="btn btn-primary apply-trigger">Free Counseling</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shortlist Sidebar -->
+    <aside class="sidebar" id="shortlist-sidebar">
+        <div class="sidebar-header">
+            <h3>Your Shortlist</h3>
+            <button class="close-btn" id="close-sidebar"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="sidebar-content" id="shortlist-items">
+            <!-- Items will be injected here via JS -->
+            <div class="empty-state">
+                <i class="ph ph-tray-light"></i>
+                <p>No universities shortlisted yet.</p>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <button class="btn btn-primary fw">Proceed to Apply</button>
+        </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- UI Modal for Details -->
+    <div class="modal-overlay" id="details-modal">
+        <div class="modal-content" id="modal-content-box">
+            <button class="close-modal" id="close-modal"><i class="ph ph-x"></i></button>
+            <img src="" alt="University Image" id="modal-img" class="modal-img">
+            <div class="modal-body">
+                <h3 id="modal-title">University Title</h3>
+                <p class="modal-loc"><i class="ph ph-map-pin"></i> <span id="modal-location">Location</span> | <i class="ph ph-currency-dollar"></i> <span id="modal-tuition">Tuition</span> / yr</p>
+                <div class="modal-section">
+                    <h4>About the University</h4>
+                    <p id="modal-desc">Description goes here.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Scholarships & Funding</h4>
+                    <p id="modal-schol">Scholarship info goes here.</p>
+                </div>
+                
+                <div class="modal-section" id="roadmap-container" style="display: none; background: rgba(0,0,0,0.02); padding: 15px; border-radius: 8px; border: 1px solid var(--border-light); margin-top: 15px;">
+                    <h4><i class="ph-fill ph-target"></i> Expert Strategy Roadmap</h4>
+                    <div class="timeline" id="roadmap-timeline" style="margin-top: 12px;"></div>
+                </div>
+
+                <button class="btn btn-outline fw" id="generate-roadmap-btn" style="margin-bottom: 12px; margin-top: 12px;"><i class="ph-bold ph-magic-wand"></i> Generate Free Strategy Roadmap</button>
+                <button class="btn btn-primary fw apply-trigger" id="modal-apply-btn">Apply for Free Counseling</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counseling Form Modal -->
+    <div class="modal-overlay" id="counseling-modal">
+        <div class="modal-content" style="max-width: 450px;">
+            <button class="close-modal" id="close-counseling"><i class="ph ph-x"></i></button>
+            <div class="modal-body">
+                <h3>Apply for Free Counseling</h3>
+                <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem;">Our expert counselors will guide you through university selection, applications, and visas.</p>
+                <form id="counseling-form">
+                    <div class="form-group">
+                        <label for="lead-name">Full Name</label>
+                        <input type="text" id="lead-name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lead-email">Email Address</label>
+                        <input type="email" id="lead-email" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="lead-course">Desired Course / Major</label>
+                        <input type="text" id="lead-course" required placeholder="e.g. MS in Data Science">
+                    </div>
+                    <button type="submit" class="btn btn-primary fw" id="submit-lead-btn" style="margin-top: 10px;">Submit Application <i class="ph-bold ph-paper-plane-right"></i></button>
+                </form>
+                <div id="counseling-success" style="display: none; text-align: center; color: var(--accent-teal); margin-top: 16px; font-weight: 600;">
+                    <i class="ph-fill ph-check-circle" style="font-size: 3rem; margin-bottom: 12px; color: var(--accent-teal);"></i><br>
+                    Application Successfully Submitted!<br><span style="color: var(--text-muted); font-size: 0.9rem; font-weight: 400;">We will contact you shortly.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot FAB -->
+    <button class="ai-fab" id="ai-fab" aria-label="Chat with AI">
+        <i class="ph-fill ph-robot"></i>
+    </button>
+
+    <!-- AI Chat Window -->
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <div class="ai-avatar">
+                <i class="ph-fill ph-robot"></i>
+            </div>
+            <div class="chat-title">
+                <h4>Admission AI</h4>
+                <span>Online Guide</span>
+            </div>
+            <button class="close-chat" id="close-chat"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg ai-msg">
+                <p>Hi there! 👋 I'm your Admission Kart AI Guide. Are you looking for a specific course or university?</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <button id="mic-btn" aria-label="Voice Input" style="background: none; border: none; font-size: 1.25rem; color: #888; cursor: pointer; padding: 0 8px 0 0; display: flex; align-items: center;">
+                <i class="ph-fill ph-microphone"></i>
+            </button>
+            <input type="text" id="chat-input" placeholder="Ask me anything...">
+            <button id="send-chat" aria-label="Send Message">
+                <i class="ph-fill ph-paper-plane-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="badge">#1 EdTech Consultancy</span>
+                    <h1 class="hero-title">Your Global Gateway to <span class="text-teal">Higher Education</span></h1>
+                    <p class="hero-subtitle">Discover top programs from MBBS in India to Engineering in Germany. We provide dedicated support from university selection to visa enrollment.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn-primary btn-large apply-trigger">Free Career Counseling <i class="ph-bold ph-arrow-right"></i></a>
+                        <a href="#process" class="btn btn-outline btn-large">How It Works</a>
+                    </div>
+
+                    <!-- Search / Filter Simulator -->
+                    <div class="search-bar-sim">
+                        <div class="search-input-group">
+                            <i class="ph ph-magnifying-glass"></i>
+                            <input type="text" placeholder="Find your dream course or university..." id="hero-search">
+                        </div>
+                        <button class="btn btn-gold search-submit">Search</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1000" alt="Diverse students in campus setting">
+                    <div class="floating-card stat-card tooltip-anim">
+                        <i class="ph-fill ph-star text-gold"></i>
+                        <div>
+                            <strong>98%</strong>
+                            <span>Visa Success</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services py-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Our Core Pillars</h2>
+                    <p class="section-desc">Comprehensive support tailored for your educational journey, ensuring no opportunity is missed.</p>
+                </div>
+                
+                <div class="service-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="icon-wrapper teal-bg">
+                            <i class="ph ph-buildings"></i>
+                        </div>
+                        <h3>Domestic Admissions (India)</h3>
+                        <p>Specialized guidance for prime courses like MBBS, Engineering, and Management in India's top institutions.</p>
+                        <a href="#" class="service-link">Learn More <i class="ph-bold ph-caret-right"></i></a>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="icon-wrapper gold-bg">
+                            <i class="ph ph-airplane-tilt"></i>
+                        </div>
+                        <h3>Study Abroad Programs</h3>
+                        <p>Turn your dream of studying in USA, UK, Canada, or Germany into reality with our expert counselors.</p>
+                        <a href="#" class="service-link">Explore Destinations <i class="ph-bold ph-caret-right"></i></a>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="icon-wrapper navy-bg">
+                            <i class="ph ph-currency-circle-dollar"></i>
+                        </div>
+                        <h3>Scholarship & Financial Aid</h3>
+                        <p>Navigate the complex world of educational funding with our comprehensive scholarship support.</p>
+                        <a href="#" class="service-link">Find Scholarships <i class="ph-bold ph-caret-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Timeline Section -->
+        <section id="process" class="process py-section text-center">
+            <div class="container">
+                <h2 class="section-title">The Admission Kart Process</h2>
+                <p class="section-desc">A simple, transparent 4-step journey to your dream university.</p>
+                
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <h4>Profile Evaluation</h4>
+                        <p>Deep-dive analysis of your academic and extracurricular background.</p>
+                    </div>
+                    <div class="timeline-connector"></div>
+                    <!-- Step 2 -->
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <h4>University Selection</h4>
+                        <p>Curating a personalized list of universities that match your profile.</p>
+                    </div>
+                    <div class="timeline-connector"></div>
+                    <!-- Step 3 -->
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <h4>Application Support</h4>
+                        <p>Crafting compelling SOPs and ensuring error-free applications.</p>
+                    </div>
+                    <div class="timeline-connector"></div>
+                    <!-- Step 4 -->
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                        <h4>Visa & Enrollment</h4>
+                        <p>Mock interviews, documentation, and pre-departure briefings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Signals / Top Universities (to show shortlist functionality) -->
+        <section class="universities py-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Explore Top Universities</h2>
+                    <p class="section-desc">Shortlist your favorite institutions to begin your application process.</p>
+                </div>
+                
+                <div class="uni-grid" id="university-list">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Signals / Stats & Testimonials -->
+        <section id="trust" class="trust py-section bg-navy text-white">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="500">0</h3>
+                        <span>+</span>
+                        <p>Partner Universities</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="10000">0</h3>
+                        <span>+</span>
+                        <p>Students Counseled</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="98">0</h3>
+                        <span>%</span>
+                        <p>Admission Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-navy text-white">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo text-white">
+                        <i class="ph ph-graduation-cap"></i>
+                        <span>Admission <strong>Kart</strong></span>
+                    </a>
+                    <p>Your premier educational consultancy guiding students to top universities globally.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="ph ph-envelope"></i> info@admissionkart.com</p>
+                    <p><i class="ph ph-phone"></i> +91 98765 43210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Admission Kart. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="{{ url_for('static', filename='js/app.js') }}?v=2"></script>
+</body>
+</html>
