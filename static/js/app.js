@@ -211,13 +211,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ query })
-                });
+                if(!res.ok) throw new Error("Static Host");
                 const results = await res.json();
                 renderUniversities(results);
                 document.getElementById('university-list').scrollIntoView({ behavior: 'smooth' });
             } catch (e) {
-                console.error("AI Search failed", e);
-                alert("AI Search Connectivity Issue: Ensure your local server is running on http://127.0.0.1:5001, or deploy the backend to an HTTPS server (like Render) for the Netlify preview to work.");
+                // Simulation Search Logic (Fallback for GitHub Pages)
+                console.log("Using Search Simulation...");
+                const simResults = universities.filter(u => 
+                    u.name.toLowerCase().includes(query.toLowerCase()) || 
+                    u.location.toLowerCase().includes(query.toLowerCase()) ||
+                    (u.tags && u.tags.toLowerCase().includes(query.toLowerCase()))
+                );
+                renderUniversities(simResults);
             } finally {
                 searchBtn.innerHTML = originalText;
             }
