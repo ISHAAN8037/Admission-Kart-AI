@@ -21,18 +21,8 @@ html = html.replace("{{ url_for('static', filename='js/app.js') }}", "./static/j
 with open(f"{DIST_DIR}/index.html", "w") as f:
     f.write(html)
 
-# Patch the JavaScript endpoints to forcefully route to the live locatunnel python backend
-BASE_URL = "https://shy-vans-press.loca.lt"
-
-with open(f"{DIST_DIR}/static/js/app.js", "r") as f:
-    js = f.read()
-
-js = js.replace("fetch('/api/universities')", f"fetch('{BASE_URL}/api/universities')")
-js = js.replace("fetch('/api/search'", f"fetch('{BASE_URL}/api/search'")
-js = js.replace("fetch('/api/chat'", f"fetch('{BASE_URL}/api/chat'")
-js = js.replace("fetch('/api/leads'", f"fetch('{BASE_URL}/api/leads'")
-
-with open(f"{DIST_DIR}/static/js/app.js", "w") as f:
-    f.write(js)
+# We no longer patch the BASE_URL here because app.js now has a built-in 
+# 'Simulation Fallback' for static hosts like GitHub Pages.
+print("Build optimized for Static Simulation Mode.")
 
 print("Netlify Build Compilation Complete. Output ready in /netlify_dist")
