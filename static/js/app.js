@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 1. THE VISA & FUNDING OFFICER (Triggered by Money/Visa/Budget)
         if (pt.includes("visa") || pt.includes("money") || pt.includes("budget") || pt.includes("finance") || pt.includes("cost") || pt.includes("scholarship")) {
-            reply = `### 📂 FINANCIAL AUDIT MODE ACTIVE\n\n*Your data is handled with professional confidentiality.*\n\nAs your **Visa & Funding Officer**, I am conducting a 'Visa Success Stress Test' based on your query. \n\n**Financial Audit:** If you are targeting Germany, remember the mandatory **€11,208 Blocked Account** requirement. For the USA, your I-20 will require proof of liquid funds covering at least 1 year of tuition and living expenses.\n\n| Item | Requirement | Goal |\n| :--- | :--- | :--- |\n| Blocked Account | €11,208 | Germany Visa |\n| I-20 Coverage | Full 1st Year | USA F1 Visa |\n| Proof of Funds | Bank/Loan Docs | Compliance |\n\n**Scholarship Sniper:** I recommend the **DAAD Global Excellence** (Germany) or **Lester B. Pearson** (Canada) to maximize your ROI.`;
+            reply = `Financial Audit Mode Active. Your data is handled with professional confidentiality.\n\n### 📂 VISA & FUNDING AUDIT\n\nAs your **Visa & Funding Officer**, I am conducting a 'Visa Success Stress Test' based on your query. \n\n**Financial Audit:** If you are targeting Germany, remember the mandatory **€11,208 Blocked Account** requirement. For the USA, your I-20 will require proof of liquid funds covering at least 1 year of tuition and living expenses.\n\n| Item | Requirement | Goal |\n| :--- | :--- | :--- |\n| Blocked Account | €11,208 | Germany Visa |\n| I-20 Coverage | Full 1st Year | USA F1 Visa |\n| Proof of Funds | Bank/Loan Docs | Compliance |\n\n**Scholarship Sniper:** I recommend the **DAAD Global Excellence** (Germany) or **Lester B. Pearson** (Canada).`;
             recommendations = mockUniversities.filter(u => u.location === "Germany" || u.location === "Canada").slice(0, 2);
             visaProb = 85; 
         } 
@@ -461,13 +461,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 reply = `### 🏛️ ELITE ARCHITECT: ROI BATTLE\n\nLet's analyze the **Return on Investment** between your top choices. Comparing high-tuition elite schools against "Hidden Gems" or subsidized European gems is my specialty.\n\n| University | Annual Tuition (Est.) | AI ROI Score | Verdict |\n| :--- | :--- | :--- | :--- |\n| **TUM Germany** | ~ \$1,500 | 95 | **Hidden Gem** |\n| **Stanford USA** | ~ \$57,000 | 98 | **Elite/High Cap** |\n| **Imperial UK** | ~ \$52,000 | 92 | **Strategic Stem** |\n\n**Strategic Audit:** For pure financial ROI, the Technical University of Munich remains unbeaten. For networking power, Stanford is the gold standard.`;
                 recommendations = mockUniversities.filter(u => u.name.includes("Munich") || u.name.includes("Stanford"));
             } else {
-                reply = `### 🏛️ ADMISSION KART: ELITE ARCHITECT MODE\n\nI am your **Elite Architect**. I design your global education path by maximizing prestige and minimizing debt.\n\n**High-ROI Suggestions:** If you haven't considered them, **ETH Zurich** and **Kyoto University** are world-class "Hidden Gems" with extremely competitive tuition-to-prestige ratios.\n\n**Strategic Goal:** Always prioritize the institution that offers the highest 'Social Capital' for your specific major. In STEM, that is often TUM or Imperial. In Business, Harvard or Stanford remains dominant.`;
+                reply = `### 🏛️ ADMISSION KART: ELITE ARCHITECT MODE\n\nI am your **Elite Architect**. I design your global education path by maximizing prestige and minimizing debt.\n\n**High-ROI Suggestions:** If you haven't considered them, **ETH Zurich** and **Kyoto University** are world-class "Hidden Gems" with extremely competitive tuition-to-prestige ratios.`;
                 recommendations = mockUniversities.slice(0, 3);
             }
         }
 
         // --- MANDATORY GLOBAL FOOTER ---
-        const footer = `\n\n---\n**Current Visa Success Probability:** ${visaProb}%\n**Next Strategic Move:** Create a 'Document Vault' on your dashboard to begin the verification audit.`;
+        const footer = `\n\n---\n**Current Visa Success Probability:** ${visaProb}%\n**Next Strategic Move:** [Actionable Task]`;
         
         return {
             text: reply + footer,
