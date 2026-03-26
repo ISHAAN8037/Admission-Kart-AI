@@ -408,7 +408,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // detect if it's the generic one-line fallback
             if (data.reply.includes("optimizing my Strategic Alignment")) {
                 console.log("Backend in fallback mode. Triggering Satellite Architect...");
-                runAiSimulation(text);
+                const result = runAiSimulation(text);
+                appendMessage(result.text, false, result.recommendations);
             } else {
                 appendMessage(data.reply, false, data.recommendations);
             }
@@ -416,7 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("AI Bridge Failure:", e);
             document.getElementById(typingId)?.remove();
             console.log("Switching to Satellite Architect (Simulation Mode)...");
-            runAiSimulation(text);
+            const result = runAiSimulation(text);
+            appendMessage(result.text, false, result.recommendations);
         }
     }
 

@@ -346,20 +346,19 @@ def chat_agent():
     data = request.json
     message = data.get('message', '')
     
-    # Detect Mode based on trigger words
-    mode = "GENERAL"
-    if any(k in message.lower() for k in ['predict', 'gpa', 'score', 'match']):
-        mode = "PREDICTOR"
-    elif any(k in message.lower() for k in ['sop', 'essay', 'resume', 'audit', 'analyze']):
-        mode = "ANALYZER"
-    elif any(k in message.lower() for k in ['timeline', 'roadmap', 'apply', 'when']):
-        mode = "PATHFINDER"
-    elif any(k in message.lower() for k in ['scholarship', 'funding', 'money', 'free']):
-        mode = "SCHOLAR"
+    # Detect Persona Mode based on trigger words for backend optimization
+    mode = "ELITE ARCHITECT"
+    if any(k in message.lower() for k in ['money', 'visa', 'budget', 'cost', 'finance']):
+        mode = "VISA & FUNDING OFFICER"
+    elif any(k in message.lower() for k in ['vibe', 'life', 'campus', 'culture', 'weather']):
+        mode = "ALUMNI TWIN"
+    elif any(k in message.lower() for k in ['ra', 'ta', 'job', 'assistantship', 'working']):
+        mode = "ASSISTANTSHIP GURU"
 
     try:
-        model = genai.GenerativeModel('gemini-2.5-flash')
-        prompt = f"{CONSULTANT_SYSTEM_PROMPT}\n\nCURRENT MODE: {mode}\nUSER QUERY: {message}\n\nRespond as the Elite Admission Architect."
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        # Remove the 'Respond as the Elite Admission Architect' forcing footer to allow persona switching
+        prompt = f"{CONSULTANT_SYSTEM_PROMPT}\n\n[SYSTEM HINT: CURRENT INTENT DETECTED AS {mode}]\nUSER QUERY: {message}"
         
         response = model.generate_content(prompt)
         reply = response.text.strip()
