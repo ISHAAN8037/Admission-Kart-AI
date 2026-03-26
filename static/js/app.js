@@ -51,6 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
             scholarships: "Lester B. Pearson International Scholarship, Ontario Graduate Scholarship."
         },
         { 
+            id: "u4", 
+            name: "Imperial College London", 
+            location: "UK", 
+            image: "./static/images/imperial_college.png", 
+            value_score: 92, 
+            tags: "uk engineering science prestigious", 
+            tuition: "52,000",
+            description: "Imperial College London is a world-class university with a mission to benefit society through excellence in science, engineering, medicine, and business.",
+            scholarships: "Presidents Undergraduate Scholarship, Imperial Bursary."
+        },
+        { 
             id: "u6", 
             name: "Harvard University", 
             location: "USA", 
