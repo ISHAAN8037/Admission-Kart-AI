@@ -434,55 +434,45 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function runAiSimulation(text) {
         let reply = "";
-        const promptText = text.toLowerCase();
+        const pt = text.toLowerCase();
         let recommendations = [];
+        let visaProb = Math.floor(Math.random() * (95 - 65 + 1)) + 65; // Simulated probability
         
-        // 1. LEGAL MODULE (Law, JD, LLB)
-        if (promptText.includes("law") || promptText.includes("llb") || promptText.includes("jd") || promptText.includes("legal")) {
-            reply = `### ⚖️ LEGAL STRATEGY AUDIT\n\nYour focus on **Legal Studies** is a high-stakes investment. As your Lead Strategic Advisor, my goal is to secure a top-tier placement while maximizing your ROI. \n\n**ROI Analysis:** Entry into Stanford or Harvard Law provides a lifetime social capital multiplier, but requires an elite LSAT/LNAT benchmark.\n\n| Metric | Benchmark | Expert Verdict |\n| :--- | :--- | :--- |\n| Academic LNAT | 27+ | **Critical** |\n| Jurisprudence Fit | High | **Required** |\n| Annual ROI | 15% | **Exceptional** |\n\n**30-Day Plan:**\n1. Register for the LSAT/LNAT immediately to secure your preferred window.\n2. Draft your "Statement of Purpose" focusing on one specific legal case that defines your ambition.\n\n**Next Strategic Move:** Research the "Socratic Method" used in North American law schools to align your SOP narrative.`;
-            recommendations = mockUniversities.filter(u => u.name.includes("Stanford") || u.name.includes("Harvard"));
+        // 1. THE VISA & FUNDING OFFICER (Triggered by Money/Visa/Budget)
+        if (pt.includes("visa") || pt.includes("money") || pt.includes("budget") || pt.includes("finance") || pt.includes("cost") || pt.includes("scholarship")) {
+            reply = `### 📂 FINANCIAL AUDIT MODE ACTIVE\n\n*Your data is handled with professional confidentiality.*\n\nAs your **Visa & Funding Officer**, I am conducting a 'Visa Success Stress Test' based on your query. \n\n**Financial Audit:** If you are targeting Germany, remember the mandatory **€11,208 Blocked Account** requirement. For the USA, your I-20 will require proof of liquid funds covering at least 1 year of tuition and living expenses.\n\n| Item | Requirement | Goal |\n| :--- | :--- | :--- |\n| Blocked Account | €11,208 | Germany Visa |\n| I-20 Coverage | Full 1st Year | USA F1 Visa |\n| Proof of Funds | Bank/Loan Docs | Compliance |\n\n**Scholarship Sniper:** I recommend the **DAAD Global Excellence** (Germany) or **Lester B. Pearson** (Canada) to maximize your ROI.`;
+            recommendations = mockUniversities.filter(u => u.location === "Germany" || u.location === "Canada").slice(0, 2);
+            visaProb = 85; 
         } 
-        // 2. MEDICAL MODULE (Medicine, MBBS, MD)
-        else if (promptText.includes("medicine") || promptText.includes("mbbs") || promptText.includes("md") || promptText.includes("doctor") || promptText.includes("healthcare")) {
-            reply = `### 🏥 CLINICAL ADMISSION AUDIT\n\n**Medical Admissions** require surgical precision in your academic profile. As your Lead Strategic Advisor, I evaluate your path based on clinical exposure and residency ROI.\n\n**ROI Analysis:** European medical degrees (like in the UK or Germany) offer significantly higher ROI due to subsidized tuition compared to private US tiers.\n\n| Metric | Benchmark | Expert Verdict |\n| :--- | :--- | :--- |\n| MCAT/UKCAT | 515+/2800+ | **Target** |\n| Clinical Hours | 50+ | **Competitive** |\n| Tuition-to-Salary ROI | High | **Optimal** |\n\n**30-Day Plan:**\n1. Secure a hospital shadowing slot for at least 10 hours per week.\n2. For Germany, begin your Goethe Zertifikat B1/B2 preparation to unlock zero-tuition slots.\n\n**Next Strategic Move:** Mention the **DAAD Global Excellence Scholarship** if targeting Germany to offset all living costs.`;
-            recommendations = mockUniversities.filter(u => u.name.includes("Imperial"));
+        // 2. THE ALUMNI TWIN (Triggered by Vibe/Life/Campus)
+        else if (pt.includes("vibe") || pt.includes("life") || pt.includes("campus") || pt.includes("culture") || pt.includes("weather") || pt.includes("food")) {
+            reply = `### 🎓 ADMISSION KART: ALUMNI TWIN MODE\n\nI'm your **Alumni Twin**, here to give you the real "Day in the Life" at these institutions. \n\n**A Day at Stanford (USA):** Expect a morning bike ride through the sunny Palm Drive. Most students grab a quick bite at Coupa Cafe before a 10:00 AM CS lecture. The weather is perpetual sunshine (~22°C), and the vibe is "Collaborative Excellence." \n\n**A Day at TUM (Germany):** It's early mornings at Garching campus. You'll grab a Bretzel at the local bakery, work through a rigorous engineering lab, and grab a Beer (after 5 PM) at a student hall. Part-time jobs (Werkstudent) are plentiful in Munich's tech scene.`;
+            recommendations = mockUniversities.filter(u => u.name.includes("Stanford") || u.name.includes("Munich"));
         }
-        // 3. STEM MODULE (Engineering, CS, Tech)
-        else if (promptText.includes("engineering") || promptText.includes("tech") || promptText.includes("cs") || promptText.includes("computer") || promptText.includes("btech") || promptText.includes("mtech") || promptText.includes("science")) {
-            reply = `### 💻 STEM & TECHNOLOGY ROI AUDIT\n\nYour focus on **STEM** aligns with high-growth global sectors. My role as your Lead Strategic Advisor is to identify the most cost-effective path to a world-class degree.\n\n**ROI Analysis:** **TUM (Germany)** is the highest ROI engineering school in our database due to its near-zero tuition and global prestige.\n\n| Metric | Benchmark | Expert Verdict |\n| :--- | :--- | :--- |\n| GPA (Technical) | 3.8+ | **Strong** |\n| Quantitative SAT/GRE | 780+/165+ | **Competitive** |\n| Local Job Market ROI | Peak | **Target** |\n\n**30-Day Plan:**\n1. Quantify every technical project in your portfolio using "Impact Metrics".\n2. If applying to Canada, check the **Lester B. Pearson International Scholarship** deadlines immediately.\n\n**Next Strategic Move:** Focus on "Full-Stack" versatility in your projects to appeal to global recruiters.`;
-            recommendations = mockUniversities.filter(u => u.tags.includes("engineering") || u.tags.includes("technology"));
+        // 3. THE ASSISTANTSHIP GURU (Triggered by Job/RA/TA)
+        else if (pt.includes("ra") || pt.includes("ta") || pt.includes("working") || pt.includes("job") || pt.includes("assistant") || pt.includes("work")) {
+            reply = `### 💼 ASSISTANTSHIP GURU ACTIVE\n\nYour goal is to offset tuition through a **Research or Teaching Assistantship**. Here is a professional cold email draft for you:\n\n**Subject:** Inquiry Regarding Research Assistantship Opportunities - [Your Name]\n\nDear Professor [Last Name],\n\nI am a prospective [Major] student with deep interests in your work regarding [Specific Topic]. Having audited your recent paper on [Reference], I was struck by your methodology regarding [Detail].\n\nMy background in [Skill A] and [Skill B] aligns perfectly with your lab's current direction. I would be honored to discuss how I can contribute to your team as a Research Assistant for the upcoming semester.\n\nBest regards,\n[Your Name]`;
+            recommendations = mockUniversities.slice(0, 2);
         }
-        // 4. EXECUTIVE MODULE (MBA, Business)
-        else if (promptText.includes("mba") || promptText.includes("business") || promptText.includes("management") || promptText.includes("finance") || promptText.includes("economics")) {
-            reply = `### 💼 EXECUTIVE LEADERSHIP AUDIT\n\nAn **MBA/Business degree** is an investment in social capital. As your Lead Strategic Advisor, I prioritize "Career Acceleration" over simple degree acquisition.\n\n**ROI Analysis:** Top-tier programs (M7) command high tuition but offer a 10-year ROI that far exceeds generic management degrees.\n\n| Metric | Benchmark | Expert Verdict |\n| :--- | :--- | :--- |\n| Work Exp | 3-5 Years | **Target** |\n| GMAT / GRE | 710+ / 325+ | **Strong** |\n| Networking ROI | Elite | **Critical** |\n\n**30-Day Plan:**\n1. Update your LinkedIn profile to reflect "Strategic Leadership" rather than just "Operations".\n2. If targeting the USA, research "Fulbright" or "Knight-Hennessy" funding to save ~\$100k.\n\n**Next Strategic Move:** Define your "Post-MBA Pivot" immediately to focus your SOP on tangible ROI goals.`;
-            recommendations = mockUniversities.filter(u => u.description.includes("Business") || u.name.includes("Harvard"));
-        }
-        // 5. SCHOLARSHIP & FUNDING MODULE
-        else if (promptText.includes("scholarship") || promptText.includes("funding") || promptText.includes("money") || promptText.includes("free") || promptText.includes("cost")) {
-            reply = `### 💰 STRATEGIC FUNDING AUDIT\n\nMaximizing your **Scholarship Acquisition** is my primary financial goal for you. \n\n**ROI Analysis:** Fully-funded paths in Germany (DAAD) or Canada (Pearson) provide the absolute peak ROI in international education.\n\n| Region | Preferred Scholarship | Strategic Benefit |\n| :--- | :--- | :--- |\n| Germany | **DAAD Global Excellence** | Zero Tuition + Stipend |\n| Canada | **Lester B. Pearson** | Full-Ride Coverage |\n| USA | **Knight-Hennessy** | Ivy-Tier Excellence |\n\n**30-Day Plan:**\n1. Identify 5 scholarships with deadlines in the next 90 days. \n2. Draft your "Financial Need" essay if applying for need-based aid at Harvard or Stanford.\n\n**Next Strategic Move:** Check the 'Scholarships' section of each university card on this platform to sync with their deadlines.`;
-            recommendations = mockUniversities.filter(u => u.scholarships && u.scholarships.length > 5).slice(0, 2);
-        }
-        // 6. PREDICTOR/MATCH SCORE SIMULATION
-        else if (promptText.includes("match") || promptText.includes("score") || (promptText.includes("gpa") && (promptText.includes("sat") || promptText.includes("high")))) {
-            const gpaMatch = promptText.match(/\d\.\d/) || ["3.8"];
-            const satMatch = promptText.match(/\d{4}/) || ["1500"];
-            const uni = promptText.includes("stanford") ? "Stanford University" : "your target institution";
-            const gpaVal = parseFloat(gpaMatch[0]);
-            
-            let status = "Target";
-            if (gpaVal < 3.5 && promptText.includes("stanford")) status = "Reach (Unlikely)";
-            else if (gpaVal > 3.8) status = "Strong Target";
-
-            reply = `### 🎯 LEAD STRATEGIC ALIGNMENT: ${uni.toUpperCase()}\n\nAs your Lead Strategic Advisor, my honest assessment of your alignment with ${uni} is as follows:\n\n| Metric | Input | Status / Honest Verdict |\n| :--- | :--- | :--- |\n| Academic GPA | ${gpaMatch[0]} | **${status}** |\n| Test Score | ${satMatch[0]} | **Competitive** |\n| Institutional Fit | High | **Target** |\n\n**30-Day Plan:**\n1. If this is a "Reach", begin identifying 3 "Safe" schools with 90% match scores.\n2. Focus 100% of your energy on an "Intellectual Spike" in your SOP.\n\n**Next Strategic Move:** If your GPA is < 3.5, I recommend the **Technical University of Munich** as a high-ROI, realistic alternative.`;
-            recommendations = mockUniversities.filter(u => u.name.includes(uni) || u.value_score > 95).slice(0, 1);
-        }
-        // DEFAULT: GENERAL ARCHITECT MODE
+        // 4. THE ELITE ARCHITECT (Default / Comparison / ROI)
         else {
-            reply = `### 🏛️ LEAD STRATEGIC ADVISOR: STANDBY\n\nI have received your inquiry regarding **"${text}"**. \n\nAs the Lead Strategic Advisor, I am here to optimize your international path. To give you an honest ROI audit, please specify your **Major**, **GPA**, or **Target Country**.\n\n**Next Strategic Move:** Ask me about "**Scholarships in Germany**" or "**MBA Match Score at Stanford**" for a professional data audit.`;
-            recommendations = [];
+            const isComparison = pt.includes("vs") || pt.includes("compare") || pt.includes("difference");
+            if (isComparison) {
+                reply = `### 🏛️ ELITE ARCHITECT: ROI BATTLE\n\nLet's analyze the **Return on Investment** between your top choices. Comparing high-tuition elite schools against "Hidden Gems" or subsidized European gems is my specialty.\n\n| University | Annual Tuition (Est.) | AI ROI Score | Verdict |\n| :--- | :--- | :--- | :--- |\n| **TUM Germany** | ~ \$1,500 | 95 | **Hidden Gem** |\n| **Stanford USA** | ~ \$57,000 | 98 | **Elite/High Cap** |\n| **Imperial UK** | ~ \$52,000 | 92 | **Strategic Stem** |\n\n**Strategic Audit:** For pure financial ROI, the Technical University of Munich remains unbeaten. For networking power, Stanford is the gold standard.`;
+                recommendations = mockUniversities.filter(u => u.name.includes("Munich") || u.name.includes("Stanford"));
+            } else {
+                reply = `### 🏛️ ADMISSION KART: ELITE ARCHITECT MODE\n\nI am your **Elite Architect**. I design your global education path by maximizing prestige and minimizing debt.\n\n**High-ROI Suggestions:** If you haven't considered them, **ETH Zurich** and **Kyoto University** are world-class "Hidden Gems" with extremely competitive tuition-to-prestige ratios.\n\n**Strategic Goal:** Always prioritize the institution that offers the highest 'Social Capital' for your specific major. In STEM, that is often TUM or Imperial. In Business, Harvard or Stanford remains dominant.`;
+                recommendations = mockUniversities.slice(0, 3);
+            }
         }
 
-        appendMessage(reply, false, recommendations);
+        // --- MANDATORY GLOBAL FOOTER ---
+        const footer = `\n\n---\n**Current Visa Success Probability:** ${visaProb}%\n**Next Strategic Move:** Create a 'Document Vault' on your dashboard to begin the verification audit.`;
+        
+        return {
+            text: reply + footer,
+            recommendations: recommendations
+        };
     }
 
     /**
