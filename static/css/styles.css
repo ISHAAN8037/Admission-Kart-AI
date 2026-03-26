@@ -1190,3 +1190,63 @@ a {
     font-size: 0.95rem;
     margin-bottom: 2px;
 }
+
+/* AI Chat Markdown Styling */
+.ai-content {
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.ai-content h3 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    color: var(--deep-navy);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 4px;
+}
+
+.ai-content p {
+    margin-bottom: 12px;
+}
+
+.ai-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.ai-content th, .ai-content td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.ai-content th {
+    background-color: var(--bg-light);
+    color: var(--deep-navy);
+    font-weight: 700;
+}
+
+.ai-content tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.ai-content ul, .ai-content ol {
+    margin-bottom: 16px;
+    padding-left: 20px;
+}
+
+.ai-content li {
+    margin-bottom: 8px;
+}
+
+.ai-content strong {
+    color: var(--deep-navy);
+    font-weight: 700;
+}
