@@ -424,32 +424,56 @@ document.addEventListener('DOMContentLoaded', () => {
      * SATELLITE ARCHITECT: High-fidelity Persona Simulation
      * Operates when the live API is unreachable (e.g. static hosting).
      */
+    /**
+     * SATELLITE ARCHITECT: High-fidelity Persona Simulation
+     * Expanded Intelligence for Law, Medicine, STEM, and MBA paths.
+     */
     function runAiSimulation(text) {
         let reply = "";
         const promptText = text.toLowerCase();
+        let recommendations = [];
         
-        // 1. PREDICTOR MODE SIMULATION
-        if (promptText.includes("match") || promptText.includes("score") || (promptText.includes("gpa") && (promptText.includes("sat") || promptText.includes("high")))) {
+        // 1. LEGAL MODULE (Law, JD, LLB)
+        if (promptText.includes("law") || promptText.includes("llb") || promptText.includes("jd") || promptText.includes("legal")) {
+            reply = `### ⚖️ ELITE LEGAL STRATEGY AUDIT\n\nYour inquiry into **Legal Studies** requires a focus on professional Jurisprudence and high-tier networking. \n\n**Architect's Insight:** Entry into top-tier law schools (like Stanford or Harvard) depends heavily on your **LSAT/LNAT** performance and your ability to draft a "Statement of Purpose" that demonstrates high-velocity analytical reasoning.\n\n**Next Strategic Move:** Research the "Socratic Method" used in North American law schools to align your SOP narrative.`;
+            recommendations = mockUniversities.filter(u => u.name.includes("Stanford") || u.name.includes("Harvard"));
+        } 
+        // 2. MEDICAL MODULE (Medicine, MBBS, MD)
+        else if (promptText.includes("medicine") || promptText.includes("mbbs") || promptText.includes("md") || promptText.includes("doctor") || promptText.includes("healthcare")) {
+            reply = `### 🏥 CLINICAL ADMISSION AUDIT\n\n**Medical Admissions** are the most computationally intensive paths in our database. \n\n**Architect's Insight:** Beyond the MCAT/UKCAT, elite medical programs prioritize clinical exposure and research symmetry. If targeting the UK, focus on **Imperial College** for its integrated science-to-clinical transition.\n\n**Next Strategic Move:** Begin securing 50+ hours of verified clinical shadowing or hospital volunteering to anchor your application.`;
+            recommendations = mockUniversities.filter(u => u.name.includes("Imperial"));
+        }
+        // 3. STEM MODULE (Engineering, CS, Tech)
+        else if (promptText.includes("engineering") || promptText.includes("tech") || promptText.includes("cs") || promptText.includes("computer") || promptText.includes("btech") || promptText.includes("mtech") || promptText.includes("science")) {
+            reply = `### 💻 STEM & TECHNOLOGY ROI AUDIT\n\nYour focus on **STEM** aligns with the highest ROI sectors in the current global economy. \n\n**Architect's Insight:** For maximum financial optimization, **TUM (Germany)** offers a near-zero tuition model with world-class engineering prestige. For hyper-prestige, **Stanford** and **IIT Bombay** remain the gold standards for Silicon Valley integration.\n\n**Next Strategic Move:** Quantify your technical projects in your resume using "Action-Result" metrics (e.g., "Optimized latency by 40%").`;
+            recommendations = mockUniversities.filter(u => u.tags.includes("engineering") || u.tags.includes("technology"));
+        }
+        // 4. EXECUTIVE MODULE (MBA, Business)
+        else if (promptText.includes("mba") || promptText.includes("business") || promptText.includes("management") || promptText.includes("finance") || promptText.includes("economics")) {
+            reply = `### 💼 EXECUTIVE LEADERSHIP AUDIT\n\nAn **MBA or Business degree** is a strategic investment in "Social Capital" and "Executive Presence." \n\n**Architect's Insight:** Top-tier business programs (M7/T15) are looking for "Career Acceleration." Your narrative must prove that you don't just work in business—you lead it.\n\n**Next Strategic Move:** Identify your "Post-MBA Pivot" immediately. AdComs prioritize candidates with a surgical focus on their 5-year ROI goals.`;
+            recommendations = mockUniversities.filter(u => u.description.includes("Business") || u.name.includes("Harvard"));
+        }
+        // 5. SCHOLARSHIP & FUNDING MODULE
+        else if (promptText.includes("scholarship") || promptText.includes("funding") || promptText.includes("money") || promptText.includes("free") || promptText.includes("cost")) {
+            reply = `### 💰 STRATEGIC FUNDING AUDIT\n\nMaximizing **Scholarship Acquisition** is the foundation of an "Elite ROI" path. \n\n**Architect's Insight:** You should actively target "Full-Ride" benchmarks like the **Lester B. Pearson (Canada)** or the **DAAD Global Excellence (Germany)**. These don't just cover tuition; they grant entry into an exclusive elite network.\n\n**Next Strategic Move:** Check the 'Scholarships' section of each university card on this platform to sync with their upcoming deadlines.`;
+            recommendations = mockUniversities.filter(u => u.scholarships && u.scholarships.length > 5).slice(0, 2);
+        }
+        // 6. PREDICTOR/MATCH SCORE SIMULATION
+        else if (promptText.includes("match") || promptText.includes("score") || (promptText.includes("gpa") && (promptText.includes("sat") || promptText.includes("high")))) {
             const gpaMatch = promptText.match(/\d\.\d/) || ["3.8"];
             const satMatch = promptText.match(/\d{4}/) || ["1500"];
             const uni = promptText.includes("stanford") ? "Stanford University" : "your target institution";
             
-            reply = `### STRATEGIC ALIGNMENT AUDIT: ${uni.toUpperCase()}\n\n| Metric | Input | Alignment |\n| :--- | :--- | :--- |\n| Academic GPA | ${gpaMatch[0]} | **Strong** |\n| Standardized Test | ${satMatch[0]} | **Competitive** |\n| Institutional Fit | High | **Target** |\n\n**Architect's Pros:** Your quantitative benchmarks establish a robust foundation for this tier. \n\n**Architect's Cons:** The hyper-competitive landscape at ${uni} requires a more distinctive "Intellectual Spike" in your extracurricular profile.\n\n**Next Strategic Move:** Elevate your SOP narrative to highlight specialized research over general volunteering.`;
-        } 
-        // 2. ANALYZER MODE SIMULATION
-        else if (promptText.includes("sop") || promptText.includes("essay") || promptText.includes("resume") || promptText.includes("audit")) {
-            reply = `### NARRATIVE AUDIT: PHASE 1\n\n**Strength Score: 7.2/10**\n\n| Original Segment | Architect's Elite Revision |\n| :--- | :--- | \n| "I have always wanted to study btech because..." | "My pursuit of Engineering is driven by a focus on scalable infrastructure ROIs..." |\n\n**Architect's Insight:** You are currently over-utilizing the "Passive Voice." This dilutes your perceived ownership of past projects.\n\n**Next Strategic Move:** Re-write your "Research" section using impact-focused verbs.`;
+            reply = `### 🎯 STRATEGIC ALIGNMENT AUDIT: ${uni.toUpperCase()}\n\n| Metric | Input | Alignment |\n| :--- | :--- | :--- |\n| Academic GPA | ${gpaMatch[0]} | **Strong** |\n| Standardized Test | ${satMatch[0]} | **Competitive** |\n| Institutional Fit | High | **Target** |\n\n**Architect's Note:** Your quantitative benchmarks establish a robust foundation. To secure admission at this tier, focus on a distinctive "Intellectual Spike" in your SOP.\n\n**Next Strategic Move:** Elevate your SOP narrative to highlight specialized research over general volunteering.`;
+            recommendations = mockUniversities.filter(u => u.name.includes(uni) || u.value_score > 95).slice(0, 1);
         }
-        // 3. PATHFINDER MODE SIMULATION
-        else if (promptText.includes("month") || promptText.includes("timeline") || promptText.includes("when") || promptText.includes("days")) {
-            reply = `### SPRINT TIMELINE: 90-DAY HIGH-PRESSURE ROADMAP\n\n- **Next 30 Days:** Finalize LOR drafting and secure academic sponsors. Ensure "Strategic Fit" in all outreach.\n- **Next 60 Days:** Portfolio Diversification—begin drafting your "Statement of Purpose" v2.\n- **Next 90 Days:** Submission Window. Execute pre-interview quantitative drills.\n\n**Architect's Note:** The early bird occupies the premium funding slots. \n\n**Next Strategic Move:** Request your transcripts this week to avoid administrative bottlenecks.`;
-        }
-        // 4. GENERAL ARCHITECT MODE
+        // DEFAULT: GENERAL ARCHITECT MODE
         else {
-            reply = `### ADMISSION ARCHITECT: STANDBY STATUS\n\nInstitutional systems indicate you are inquiring about **"${text}"**. \n\nI am currently operating in **"Satellite Mode"**. For a hyper-personalized data audit, ensure your queries include specific metrics like **GPA**, **GRE/SAT**, or **Target University**.\n\n**Next Strategic Move:** Provide your academic profile for an immediate "Strategic Alignment" audit.`;
+            reply = `### 🏛️ ADMISSION ARCHITECT: SATELLITE MODE\n\nI have received your inquiry regarding **"${text}"**. \n\nI am currently operating in **"Satellite Mode"** to ensure 100% platform availability. For a hyper-personalized residency audit, specify your **Major**, **GPA**, or **Target Region**.\n\n**Architect's Tip:** Try asking me about "Law Scholarships" or "MBA in USA" for a more granular data-driven response.`;
+            recommendations = [];
         }
 
-        appendMessage(reply, false);
+        appendMessage(reply, false, recommendations);
     }
 
     /**
