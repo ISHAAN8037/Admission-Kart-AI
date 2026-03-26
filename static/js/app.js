@@ -17,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchUniversities() {
         try {
-            const res = await fetch('/api/universities', {
-                headers: { 'Bypass-Tunnel-Reminder': 'true' }
-            });
+            const res = await fetch('/api/universities');
             universities = await res.json();
             renderUniversities(universities);
         } catch (e) {
@@ -198,8 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const res = await fetch('/api/search', {
                     method: 'POST',
                     headers: { 
-                        'Content-Type': 'application/json',
-                        'Bypass-Tunnel-Reminder': 'true'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ query })
                 });
@@ -313,10 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const res = await fetch('/api/chat', {
                 method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Bypass-Tunnel-Reminder': 'true'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: text })
             });
             const data = await res.json();
