@@ -363,63 +363,46 @@ def chat_agent():
         response = model.generate_content(prompt)
         reply = response.text.strip()
         
-        # Contextual Recommendation Logic (Existing)
+        # Contextual Recommendation Logic
         recommended_unis = []
         if 'germany' in message.lower() or 'tum' in message.lower():
             unis = UniversityModel.query.filter(UniversityModel.location.ilike('%germany%')).limit(1).all()
             recommended_unis = [u.serialize() for u in unis]
+        elif 'canada' in message.lower() or 'toronto' in message.lower():
+            unis = UniversityModel.query.filter(UniversityModel.location.ilike('%canada%')).limit(1).all()
+            recommended_unis = [u.serialize() for u in unis]
+        else:
+            # Semantic keyword matching
+            keywords = message.split()
+            for kw in keywords:
+                if len(kw) > 3:
+                    kw_unis = UniversityModel.query.filter(db.or_(
+                        UniversityModel.name.ilike(f'%{kw}%'), 
+                        UniversityModel.tags.ilike(f'%{kw}%'),
+                        UniversityModel.location.ilike(f'%{kw}%')
+                    )).limit(2).all()
+                    recommended_unis.extend([u.serialize() for u in kw_unis])
             
+            # De-duplicate recommended_unis
+            seen = set()
+            new_recs = []
+            for r in recommended_unis:
+                if r['id'] not in seen:
+                    new_recs.append(r)
+                    seen.add(r['id'])
+            recommended_unis = new_recs[:3]
+
         return jsonify({
             "reply": reply,
             "recommendations": recommended_unis
         })
     except Exception as e:
         print(f"Architect Error: {e}")
-        return jsonify({"reply": "[DIAGNOSTIC MODE] Institutional API connection is currently optimizing. Switching to Satellite Architect for your Strategic Alignment audit.", "recommendations": []})
-        reply = "Studying in Europe offers exceptional quality of life and Schengen mobility. Germany in particular dominates affordable STEM."
-        unis = UniversityModel.query.filter(db.or_(UniversityModel.location.ilike('%germany%'), UniversityModel.location.ilike('%uk%'), UniversityModel.location.ilike('%france%'))).limit(3).all()
-        recommended_unis = [u.serialize() for u in unis]
-    else:
-        # Agentic Parsing
-        keywords = message.split()
-        unis = []
-        for kw in keywords:
-            if len(kw) > 3:
-                kw_unis = UniversityModel.query.filter(db.or_(
-                    UniversityModel.name.ilike(f'%{kw}%'), 
-                    UniversityModel.tags.ilike(f'%{kw}%'),
-                    UniversityModel.location.ilike(f'%{kw}%')
-                )).limit(3).all()
-                unis.extend(kw_unis)
-        
-        unique_unis = list({u.id: u for u in unis}.values())
-        recommended_unis = [u.serialize() for u in unique_unis]
-        
-        if recommended_unis:
-            reply = "I found some highly relevant institutions! (By the way, ask me 'What are the scholarships?' to dynamically pull their funding data!)"
-        else:
-            reply = "Could you tell me a little more about what you're tracking? Give me a specific country or major (e.g., 'Law in India')."
-
-    # Feature 2: Proactive Scholarship Sidebar
-    if recommended_unis:
-        for u in recommended_unis:
-            scholarships_text = (u.get('scholarships') or '').lower()
-            u_location = (u.get('location') or '').lower()
-            if 'daad' in scholarships_text and 'germany' in u_location:
-                reply += f"\n\nWait! You might qualify for the DAAD Scholarship (fully-funded) at {u['name']}."
-                break
-            elif 'pearson' in scholarships_text and 'canada' in u_location:
-                reply += f"\n\nWait! You might qualify for the Lester B. Pearson Scholarship at {u['name']}."
-                break
-
-    # Save contextual memory in Flask Session State
-    if recommended_unis:
-        session['last_context_uni_id'] = recommended_unis[0]['id']
-
-    return jsonify({
-        "reply": reply,
-        "recommendations": recommended_unis
-    })
+        # Return a trigger string that app.js understands for high-fidelity simulation
+        return jsonify({
+            "reply": "[OFFLINE] Institutional API connection is currently optimizing. Switching to Satellite Architect...",
+            "recommendations": []
+        })
     
 @app.route('/api/compare', methods=['POST'])
 def roi_battle_comparison():

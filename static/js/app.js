@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(typingId)?.remove();
 
             // detect if it's the generic one-line fallback
-            if (data.reply.includes("optimizing my Strategic Alignment")) {
+            if (data.reply.includes("[OFFLINE]")) {
                 console.log("Backend in fallback mode. Triggering Satellite Architect...");
                 const result = runAiSimulation(text);
                 appendMessage(result.text, false, result.recommendations);
