@@ -7,8 +7,7 @@ class UniversityModel(db.Model):
     id = db.Column(db.String(50), primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     location = db.Column(db.String(100), nullable=False)
-    image = db.Column(db.String(500))
-    video_url = db.Column(db.String(500)) # Full YouTube/Video embed URL
+    image = db.Column(db.String(500)) # GIF or Image URL
     tuition = db.Column(db.Integer)  # approximate yearly tuition in USD
     tags = db.Column(db.String(1000)) # AI keywords for matching
     description = db.Column(db.Text)
@@ -20,7 +19,6 @@ class UniversityModel(db.Model):
             "name": self.name,
             "location": self.location,
             "image": self.image,
-            "video_url": self.video_url,
             "tuition": self.tuition,
             "tags": self.tags,
             "description": self.description,
