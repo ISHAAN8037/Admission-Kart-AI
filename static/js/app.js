@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Indian Institute of Science (IISc)",
             location: "India",
             image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
+            video_id: "V1Y-lS9-S0E",
             value_score: 99,
             tags: "india bangalore science research elite top best public phd",
             tuition: "500",
@@ -110,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "IIM Bangalore",
             location: "India",
             image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
+            video_id: "V1Y-lS9-S0E",
             value_score: 96,
             tags: "india bangalore mba business management top elite postgrad",
             tuition: "32,000",
@@ -121,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Jawaharlal Nehru University (JNU)",
             location: "India",
             image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
+            video_id: "V1Y-lS9-S0E",
             value_score: 94,
             tags: "india delhi arts social science research public cheap best",
             tuition: "50",
@@ -132,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "National University of Singapore (NUS)",
             location: "Singapore",
             image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
+            video_id: "V1Y-lS9-S0E",
             value_score: 95,
             tags: "singapore asia top global best engineering business science",
             tuition: "30,000",
@@ -143,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Princeton University",
             location: "USA",
             image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
+            video_id: "V1Y-lS9-S0E",
             value_score: 98,
             tags: "usa ivy league top elite research science humanities",
             tuition: "58,000",
@@ -154,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "McGill University",
             location: "Canada",
             image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
+            video_id: "V1Y-lS9-S0E",
             value_score: 91,
             tags: "canada montreal research medicine law science top best",
             tuition: "25,000",
@@ -205,8 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const html = `
                 <div class="uni-card">
                     <div style="position:relative; overflow:hidden; height:180px;">
+                        <iframe class="video-bg" 
+                            src="https://www.youtube.com/embed/${uni.video_id}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playlist=${uni.video_id}&showinfo=0&iv_load_policy=3" 
+                            frameborder="0" allow="autoplay; encrypted-media" loading="lazy">
+                        </iframe>
+                        <div class="video-overlay"></div>
                         ${roiBadgeHtml}
-                        <img src="${uni.image}" alt="${uni.name}" class="uni-img">
                     </div>
                     <div class="uni-content">
                         <h4>${uni.name}</h4>
