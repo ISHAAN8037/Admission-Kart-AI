@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u11", 
             name: "IIT Bombay", 
             location: "India", 
-            image: "static/images/iit_bombay.png", 
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000", 
             value_score: 98, 
             tags: "engineering india mumbai top", 
             tuition: "2,500",
