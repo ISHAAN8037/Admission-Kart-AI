@@ -7,7 +7,7 @@ universities = [
         "id": "u1",
         "name": "Technical University of Munich",
         "location": "Germany",
-        "image": "/static/images/tum_munich.png",
+        "image": "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&q=80&w=1000",
         "tuition": 2000,
         "tags": "engineering europe germany technical cheap affordable",
         "description": "TUM is one of Europe's top universities, renowned for its excellent programs in engineering, technology, medicine, and the applied sciences. It boasts a thriving entrepreneurial ecosystem and strong industry ties, making it a hub for future innovators.",
@@ -17,7 +17,7 @@ universities = [
         "id": "u2",
         "name": "MIT Manipal",
         "location": "India",
-        "image": "/static/images/mit_manipal.png",
+        "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000",
         "tuition": 5000,
         "tags": "engineering india technology btech private",
         "description": "Manipal Institute of Technology (MIT) offers premier B.Tech programs spanning various disciplines. With state-of-the-art infrastructure and a legacy of producing top-tier engineers, MIT Manipal is highly sought after by domestic and international tech aspirants.",
@@ -37,7 +37,7 @@ universities = [
         "id": "u4",
         "name": "Imperial College London",
         "location": "UK",
-        "image": "/static/images/imperial_college.png",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         "tuition": 50000,
         "tags": "uk london engineering science prestigious top medical",
         "description": "Imperial College London is a world-class public research university specializing exclusively in science, engineering, medicine, and business. It is consistently ranked among the top 10 universities globally.",
@@ -57,7 +57,7 @@ universities = [
         "id": "u7",
         "name": "ETH Zurich",
         "location": "Switzerland",
-        "image": "/static/images/eth_zurich.png",
+        "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&q=80&w=1000",
         "tuition": 1500,
         "tags": "europe switzerland engineering science cheap affordable top",
         "description": "Consistently ranked as the top university in continental Europe, ETH Zurich is famous for its rigorous STEM programs and its most famous alumnus, Albert Einstein. Tuition is heavily subsidized by the Swiss state.",
@@ -336,6 +336,162 @@ universities = [
         "tags": "usa boston music arts production creative elite jazz",
         "description": "Berklee dominates the contemporary music and production industry. Specializing in jazz, contemporary music, and scoring, its alumni hold a staggering number of Grammy Awards.",
         "scholarships": "• Presidential Scholarship (Covers full tuition, housing, and laptop).\n• World Tour Scholarships (Audition-based).\n• Thrive Scholarship for continuing students."
+    },
+
+    # ---- BANGALORE, INDIA ----
+    {
+        "id": "u36",
+        "name": "Indian Institute of Science (IISc)",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u36/800/600",
+        "tuition": 500,
+        "tags": "india bangalore science research elite top best public phd",
+        "description": "IISc is India's premier institution for advanced scientific and technological research. Located in Bangalore, it is world-renowned for its contributions to physics, aerospace, and biological sciences.",
+        "scholarships": "• KVPY Fellowships.\n• Institute Scholarships for M.Tech and Ph.D. students.\n• Prime Minister's Research Fellowship (PMRF)."
+    },
+    {
+        "id": "u37",
+        "name": "Indian Institute of Management Bangalore (IIMB)",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u37/800/600",
+        "tuition": 32000,
+        "tags": "india bangalore mba business management top elite postgrad",
+        "description": "IIM Bangalore is a leading graduate school of management in Asia. Known for its innovative curriculum and strong focus on entrepreneurship, it is consistently ranked among the top business schools globally.",
+        "scholarships": "• Aditya Birla Scholarship.\n• OPJEMS Scholarship.\n• IIMB Financial Aid for needy students."
+    },
+    {
+        "id": "u38",
+        "name": "RV College of Engineering (RVCE)",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u38/800/600",
+        "tuition": 4000,
+        "tags": "india bangalore engineering technology private popular btech",
+        "description": "RVCE is one of the most prestigious private engineering colleges in Bangalore. It is known for its strong placement records and focus on technical excellence across various engineering disciplines.",
+        "scholarships": "• Government of Karnataka SC/ST Scholarships.\n• RVCE Merit Scholarships.\n• Corporate Sponsored Scholarships."
+    },
+    {
+        "id": "u39",
+        "name": "PES University",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u39/800/600",
+        "tuition": 5000,
+        "tags": "india bangalore engineering technology private popular btech",
+        "description": "PES University is a prominent private university in Bangalore, offering a wide range of programs in engineering, management, and medicine. It is highly regarded for its industry-aligned curriculum.",
+        "scholarships": "• MRD Scholarships (Top 20% of students).\n• Research Assistantships.\n• Corporate Scholarships."
+    },
+
+    # ---- DELHI, INDIA ----
+    {
+        "id": "u40",
+        "name": "Jawaharlal Nehru University (JNU)",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u40/800/600",
+        "tuition": 50,
+        "tags": "india delhi arts social science research public cheap best",
+        "description": "JNU is a world-renowned destination for social sciences, international relations, and humanities. Located in New Delhi, it is known for its vibrant intellectual culture and political activism.",
+        "scholarships": "• Merit-cum-Means Scholarships.\n• Junior Research Fellowship (JRF).\n• International Student Grants."
+    },
+    {
+        "id": "u41",
+        "name": "Jamia Millia Islamia",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u41/800/600",
+        "tuition": 300,
+        "tags": "india delhi central public architecture engineering law arts",
+        "description": "Jamia Millia Islamia is a historic central university in New Delhi. It offers a diverse range of programs and is particularly known for its architecture, mass communication, and engineering faculties.",
+        "scholarships": "• Jamia Merit Scholarships.\n• Minority Student Scholarships.\n• Dr. A.P.J. Abdul Kalam Scholarships."
+    },
+    {
+        "id": "u42",
+        "name": "Netaji Subhas University of Technology (NSUT)",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u42/800/600",
+        "tuition": 3500,
+        "tags": "india delhi engineering technology public top btech",
+        "description": "NSUT (formerly NSIT) is a premier engineering institution in Delhi. It is highly competitive and known for producing top-tier engineers who excel in global tech giants.",
+        "scholarships": "• Merit-cum-Means Scholarships (Delhi Govt).\n• Post-Metric Scholarships.\n• AICTE Tuition Fee Waiver."
+    },
+    {
+        "id": "u43",
+        "name": "Delhi Technological University (DTU)",
+        "location": "India",
+        "image": "https://picsum.photos/seed/u43/800/600",
+        "tuition": 3500,
+        "tags": "india delhi engineering technology public top btech",
+        "description": "DTU (formerly Delhi College of Engineering) is one of India's oldest and most respected technical universities. It has a massive campus and a legacy of excellence in research and innovation.",
+        "scholarships": "• DTU Merit Scholarships.\n• Financial Assistance for Needy Students.\n• Reliance Foundation Scholarships."
+    },
+
+    # ---- INTERNATIONAL (GLOBAL) ----
+    {
+        "id": "u44",
+        "name": "National University of Singapore (NUS)",
+        "location": "Singapore",
+        "image": "https://picsum.photos/seed/u44/800/600",
+        "tuition": 30000,
+        "tags": "singapore asia top global best engineering business science",
+        "description": "NUS is consistently ranked as the top university in Asia. It offers a global approach to education and research, with a strong focus on innovation and entrepreneurship.",
+        "scholarships": "• ASEAN Undergraduate Scholarship.\n• NUS Global Merit Scholarship.\n• Science & Technology Undergraduate Scholarship."
+    },
+    {
+        "id": "u45",
+        "name": "Tsinghua University",
+        "location": "China",
+        "image": "https://picsum.photos/seed/u45/800/600",
+        "tuition": 5000,
+        "tags": "china asia engineering technology science top global best",
+        "description": "Tsinghua is widely regarded as 'China's MIT'. Located in Beijing, it is the leading institution for engineering and computer science in the country and a global powerhouse in research.",
+        "scholarships": "• Chinese Government Scholarship.\n• Tsinghua University Freshman Scholarship.\n• Schwarzman Scholars Program."
+    },
+    {
+        "id": "u46",
+        "name": "Princeton University",
+        "location": "USA",
+        "image": "https://picsum.photos/seed/u46/800/600",
+        "tuition": 58000,
+        "tags": "usa ivy league top elite research science humanities",
+        "description": "Princeton is world-renowned for its focus on undergraduate education and high-level research. It consistently ranks among the top universities in the USA and the world.",
+        "scholarships": "• 100% Need-Blind Admission for all students.\n• Princeton Financial Aid covers full tuition for most families earning below $100k.\n• No-Loan Policy."
+    },
+    {
+        "id": "u47",
+        "name": "Columbia University",
+        "location": "USA",
+        "image": "https://picsum.photos/seed/u47/800/600",
+        "tuition": 62000,
+        "tags": "usa new york ivy league top elite journalism business law",
+        "description": "Located in the heart of New York City, Columbia is famous for its 'Core Curriculum' and its elite programs in journalism, law, and business.",
+        "scholarships": "• Need-Blind Admission for domestic students (Need-aware for international).\n• Full-need met for all admitted students.\n• Kluge Scholars Program."
+    },
+    {
+        "id": "u48",
+        "name": "University of Chicago",
+        "location": "USA",
+        "image": "https://picsum.photos/seed/u48/800/600",
+        "tuition": 60000,
+        "tags": "usa chicago elite economics social science law research",
+        "description": "The University of Chicago is legendary for its focus on rigorous inquiry and its influential schools of thought in economics and sociology.",
+        "scholarships": "• Odyssey Scholarship Program for lower-income students.\n• Merit Scholarships evaluated at admission.\n• Neubauer Family Adelante Programs."
+    },
+    {
+        "id": "u49",
+        "name": "University of Tokyo",
+        "location": "Japan",
+        "image": "https://picsum.photos/seed/u49/800/600",
+        "tuition": 5000,
+        "tags": "japan asia top public research engineering science",
+        "description": "The 'University of Tokyo' (Todai) is Japan's most prestigious university. It is a research powerhouse with a long history of educating the nation's leaders.",
+        "scholarships": "• MEXT Scholarship.\n• University of Tokyo Fellowship for international graduate students.\n• JASSO Scholarships."
+    },
+    {
+        "id": "u50",
+        "name": "McGill University",
+        "location": "Canada",
+        "image": "https://picsum.photos/seed/u50/800/600",
+        "tuition": 25000,
+        "tags": "canada montreal research medicine law science top best",
+        "description": "McGill is one of Canada's most international universities, located in the vibrant city of Montreal. It is especially famous for its medical school and research output.",
+        "scholarships": "• McGill Entrance Bursaries.\n• Prestige Scholarships.\n• McCall MacBain Scholarships for postgraduates."
     }
 ]
 

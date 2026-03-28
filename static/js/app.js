@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u1", 
             name: "Technical University of Munich", 
             location: "Germany", 
-            image: "static/images/tum_munich.png", 
+            image: "https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&q=80&w=1000", 
             value_score: 95, 
             tags: "engineering europe germany", 
             tuition: "0 - 1,500",
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u4", 
             name: "Imperial College London", 
             location: "UK", 
-            image: "static/images/imperial_college.png", 
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000", 
             value_score: 92, 
             tags: "uk engineering science prestigious", 
             tuition: "52,000",
@@ -85,14 +85,80 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             id: "u12", 
-            name: "Manipal Academy of Higher Education", 
+            name: "IIT Delhi", 
             location: "India", 
-            image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000", 
-            value_score: 89, 
-            tags: "india private medical engineering manipal", 
-            tuition: "5,000 - 8,000",
-            description: "MAHE is a synonymous name for excellence in private higher education in India, especially known for its medical and engineering programs.",
-            scholarships: "MAHE Merit Scholarship, Freeship for top rankers."
+            image: "https://picsum.photos/seed/u12/800/600", 
+            value_score: 97, 
+            tags: "engineering india delhi top best", 
+            tuition: "3,000",
+            description: "Located in the national capital, IIT Delhi excels in advanced technical research and produces some of the sharpest analytical minds in global tech.",
+            scholarships: "MCM Scholarships, Alumni Association Grants."
+        },
+        {
+            id: "u36",
+            name: "Indian Institute of Science (IISc)",
+            location: "India",
+            image: "https://picsum.photos/seed/u36/800/600",
+            value_score: 99,
+            tags: "india bangalore science research elite top best public phd",
+            tuition: "500",
+            description: "IISc is India's premier institution for advanced scientific research, world-renowned for its contributions to physics and aerospace.",
+            scholarships: "KVPY Fellowships, Prime Minister's Research Fellowship (PMRF)."
+        },
+        {
+            id: "u37",
+            name: "IIM Bangalore",
+            location: "India",
+            image: "https://picsum.photos/seed/u37/800/600",
+            value_score: 96,
+            tags: "india bangalore mba business management top elite postgrad",
+            tuition: "32,000",
+            description: "A leading graduate school of management in Asia, known for its innovative curriculum and focus on entrepreneurship.",
+            scholarships: "Aditya Birla Scholarship, IIMB Financial Aid."
+        },
+        {
+            id: "u40",
+            name: "Jawaharlal Nehru University (JNU)",
+            location: "India",
+            image: "https://picsum.photos/seed/u40/800/600",
+            value_score: 94,
+            tags: "india delhi arts social science research public cheap best",
+            tuition: "50",
+            description: "A world-renowned destination for social sciences and humanities, known for its vibrant intellectual culture.",
+            scholarships: "Merit-cum-Means Scholarships, Junior Research Fellowship (JRF)."
+        },
+        {
+            id: "u44",
+            name: "National University of Singapore (NUS)",
+            location: "Singapore",
+            image: "https://picsum.photos/seed/u44/800/600",
+            value_score: 95,
+            tags: "singapore asia top global best engineering business science",
+            tuition: "30,000",
+            description: "Consistently ranked as the top university in Asia, NUS offers a global approach to education and innovation.",
+            scholarships: "ASEAN Undergraduate Scholarship, NUS Global Merit Scholarship."
+        },
+        {
+            id: "u46",
+            name: "Princeton University",
+            location: "USA",
+            image: "https://picsum.photos/seed/u46/800/600",
+            value_score: 98,
+            tags: "usa ivy league top elite research science humanities",
+            tuition: "58,000",
+            description: "World-renowned for its focus on undergraduate education and high-level research. Consistently ranks among the top globally.",
+            scholarships: "100% Need-Blind Admission, No-Loan Policy."
+        },
+        {
+            id: "u50",
+            name: "McGill University",
+            location: "Canada",
+            image: "https://picsum.photos/seed/u50/800/600",
+            value_score: 91,
+            tags: "canada montreal research medicine law science top best",
+            tuition: "25,000",
+            description: "One of Canada's most international universities, especially famous for its medical school and research output.",
+            scholarships: "McGill Entrance Bursaries, Prestige Scholarships."
         }
     ];
 
@@ -463,8 +529,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let recommendations = [];
         let visaProb = Math.floor(Math.random() * (95 - 65 + 1)) + 65; // Simulated probability
         
-        // 1. THE VISA & FUNDING OFFICER (Triggered by Money/Visa/Budget)
-        if (pt.includes("visa") || pt.includes("money") || pt.includes("budget") || pt.includes("finance") || pt.includes("cost") || pt.includes("scholarship")) {
+        // 1. THE SCHOLARSHIP SNIPER (Triggered by Scholarship/Free Money/Grant)
+        if (pt.includes("scholarship") || pt.includes("free money") || pt.includes("grant") || pt.includes("funding")) {
+            const country = pt.includes("germany") ? "Germany" : pt.includes("canada") ? "Canada" : pt.includes("usa") ? "USA" : "your target destination";
+            const topScholarship = country === "Germany" ? "DAAD Scholarships (fully funded)" : country === "Canada" ? "Lester B. Pearson International Scholarship" : country === "USA" ? "Fulbright Program" : "our Global Excellence Awards";
+            
+            reply = `### 🎯 SCHOLARSHIP SNIPER MODE: ACTIVE\n\nI am the **Lead Scholarship Sniper** for Admission Kart. My goal is to find 'Free Money' for you and ensure you don't miss out on these life-changing awards.\n\n**Proactive Match:** Since you mentioned ${country}, you should immediately target the **${topScholarship}**. This award is highly competitive and requires a professional review of your profile.\n\n**Strategic Audit:** The window for a full-ride at top institutions in ${country} is closing fast (often in as little as 45 days).\n\n### 📅 THE 90-DAY BATTLE PLAN\n\n| Timeline | Task for the Student | Why it matters |\n| :--- | :--- | :--- |\n| **Next 30 Days** | Finalize SOP and LORs | Most big awards close early. |\n| **Next 60 Days** | Submit Financial Proof | Required for the scholarship audit. |\n| **Next 90 Days** | Final Application | Last chance for the full-ride window. |`;
+            
+            recommendations = mockUniversities.filter(u => u.location.toLowerCase().includes(country.toLowerCase()) || country === "your target destination").slice(0, 2);
+            
+            const closing = `\n\nI have found 5 scholarships you qualify for. Would you like to see the 30-day Battle Plan to win them?`;
+            return {
+                text: reply + closing,
+                recommendations: recommendations
+            };
+        }
+
+        // 2. THE VISA & FUNDING OFFICER (Triggered by Money/Visa/Budget)
+        if (pt.includes("visa") || pt.includes("money") || pt.includes("budget") || pt.includes("finance") || pt.includes("cost")) {
             reply = `Financial Audit Mode Active. Your data is handled with professional confidentiality.\n\n### 📂 VISA & FUNDING AUDIT\n\nAs your **Visa & Funding Officer**, I am conducting a 'Visa Success Stress Test' based on your query. \n\n**Financial Audit:** If you are targeting Germany, remember the mandatory **€11,208 Blocked Account** requirement. For the USA, your I-20 will require proof of liquid funds covering at least 1 year of tuition and living expenses.\n\n| Item | Requirement | Goal |\n| :--- | :--- | :--- |\n| Blocked Account | €11,208 | Germany Visa |\n| I-20 Coverage | Full 1st Year | USA F1 Visa |\n| Proof of Funds | Bank/Loan Docs | Compliance |\n\n**Scholarship Sniper:** I recommend the **DAAD Global Excellence** (Germany) or **Lester B. Pearson** (Canada).`;
             recommendations = mockUniversities.filter(u => u.location === "Germany" || u.location === "Canada").slice(0, 2);
             visaProb = 85; 
