@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u1", 
             name: "Technical University of Munich", 
             location: "Germany", 
-            image: "https://media.giphy.com/media/3o7TKPXvWdKym8p5K0/giphy.gif", 
+            image: "https://images.unsplash.com/photo-1565173153924-d2160811de4a?auto=format&fit=crop&q=80&w=1000", 
             value_score: 95, 
             tags: "engineering europe germany", 
             tuition: "0 - 1,500",
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u2", 
             name: "Stanford University", 
             location: "USA", 
-            image: "https://media.giphy.com/media/l0HlIDZ02wX1dIu8U/giphy.gif", 
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000", 
             value_score: 98, 
             tags: "usa ivy elite technology", 
             tuition: "57,000",
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u3", 
             name: "University of Toronto", 
             location: "Canada", 
-            image: "https://media.giphy.com/media/3o7TKubA2G681f9yDe/giphy.gif", 
+            image: "https://images.unsplash.com/photo-1565173153924-d2160811de4a?auto=format&fit=crop&q=80&w=1000", 
             value_score: 88, 
             tags: "canada research global", 
             tuition: "45,000",
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u4", 
             name: "Imperial College London", 
             location: "UK", 
-            image: "https://media.giphy.com/media/l0HlIDZ02wX1dIu8U/giphy.gif", 
+            image: "https://images.unsplash.com/photo-1565173153924-d2160811de4a?auto=format&fit=crop&q=80&w=1000", 
             value_score: 92, 
             tags: "uk engineering science prestigious", 
             tuition: "52,000",
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u6", 
             name: "Harvard University", 
             location: "USA", 
-            image: "https://media.giphy.com/media/l0HlIDZ02wX1dIu8U/giphy.gif", 
+            image: "https://images.unsplash.com/photo-1565173153924-d2160811de4a?auto=format&fit=crop&q=80&w=1000", 
             value_score: 91, 
             tags: "usa ivy prestigious", 
             tuition: "58,000",
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u11", 
             name: "IIT Bombay", 
             location: "India", 
-            image: "https://media.giphy.com/media/l0HlIDZ02wX1dIu8U/giphy.gif", 
+            image: "https://images.unsplash.com/photo-1565173153924-d2160811de4a?auto=format&fit=crop&q=80&w=1000", 
             value_score: 98, 
             tags: "engineering india mumbai top", 
             tuition: "2,500",
@@ -204,9 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const html = `
                 <div class="uni-card">
-                    <div style="position:relative;">
+                    <div class="shimmer-active" style="position:relative;">
+                        <div class="cinematic-grain"></div>
                         ${roiBadgeHtml}
-                        <img src="${uni.image}" alt="${uni.name}" class="uni-img">
+                        <img src="${uni.image}" alt="${uni.name}" class="uni-img" loading="lazy">
                     </div>
                     <div class="uni-content">
                         <h4>${uni.name}</h4>
