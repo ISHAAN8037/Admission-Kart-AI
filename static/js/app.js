@@ -211,7 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const html = `
                 <div class="uni-card">
                     <div style="position:relative; overflow:hidden; height:200px;">
-                        <img src="${uni.image}" alt="${uni.name}" class="fallback-img" style="opacity: 1; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+                        ${uni.video_url ? `
+                            <iframe src="${uni.video_url}" 
+                                frameborder="0" allow="autoplay; encrypted-media" 
+                                style="width:100%; height:200px; border-radius:12px 12px 0 0; border:none;">
+                            </iframe>
+                        ` : `
+                            <img src="${uni.image}" alt="${uni.name}" class="fallback-img" style="opacity: 1; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+                        `}
                         ${roiBadgeHtml}
                     </div>
                     <div class="uni-content">
