@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u5",
             name: "IIT Bombay",
             location: "India",
-            image: "https://images.unsplash.com/photo-1498243639159-414ccead8bd0?auto=format&fit=crop&q=80&w=1000",
+            image: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&q=80&w=1000",
             value_score: 97,
             tags: "india engineering tech elite top mumbai btech",
             tuition: "3,000",
@@ -618,7 +618,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentRoadmapLocation = "";
 
     function openDetailsModal(uni) {
-        document.getElementById('modal-img').src = uni.image;
+        const modalImg = document.getElementById('modal-img');
+        modalImg.src = uni.image;
+        modalImg.onerror = function() {
+            this.src = 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000';
+            this.onerror = null;
+        };
         document.getElementById('modal-title').textContent = uni.name;
         document.getElementById('modal-location').textContent = uni.location;
         document.getElementById('modal-tuition').textContent = uni.tuition ? `$${uni.tuition}` : 'N/A';
