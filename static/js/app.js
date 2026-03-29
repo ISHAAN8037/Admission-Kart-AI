@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u36",
             name: "Indian Institute of Science (IISc)",
             location: "India",
-            image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
             
             value_score: 99,
             tags: "india bangalore science research elite top best public phd",
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u37",
             name: "IIM Bangalore",
             location: "India",
-            image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
             
             value_score: 96,
             tags: "india bangalore mba business management top elite postgrad",
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u40",
             name: "Jawaharlal Nehru University (JNU)",
             location: "India",
-            image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
             
             value_score: 94,
             tags: "india delhi arts social science research public cheap best",
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u44",
             name: "National University of Singapore (NUS)",
             location: "Singapore",
-            image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
             
             value_score: 95,
             tags: "singapore asia top global best engineering business science",
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u46",
             name: "Princeton University",
             location: "USA",
-            image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
             
             value_score: 98,
             tags: "usa ivy league top elite research science humanities",
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u50",
             name: "McGill University",
             location: "Canada",
-            image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
             
             value_score: 91,
             tags: "canada montreal research medicine law science top best",
