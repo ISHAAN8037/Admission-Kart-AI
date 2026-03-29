@@ -95,76 +95,64 @@ document.addEventListener('DOMContentLoaded', () => {
             scholarships: "MCM Scholarships, Alumni Association Grants."
         },
         {
-            id: "u36",
-            name: "Indian Institute of Science (IISc)",
-            location: "India",
-            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
-            
-            value_score: 99,
-            tags: "india bangalore science research elite top best public phd",
-            tuition: "500",
-            description: "IISc is India's premier institution for advanced scientific research, world-renowned for its contributions to physics and aerospace.",
-            scholarships: "KVPY Fellowships, Prime Minister's Research Fellowship (PMRF)."
-        },
-        {
-            id: "u37",
-            name: "IIM Bangalore",
-            location: "India",
-            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
-            
-            value_score: 96,
-            tags: "india bangalore mba business management top elite postgrad",
-            tuition: "32,000",
-            description: "A leading graduate school of management in Asia, known for its innovative curriculum and focus on entrepreneurship.",
-            scholarships: "Aditya Birla Scholarship, IIMB Financial Aid."
-        },
-        {
-            id: "u40",
-            name: "Jawaharlal Nehru University (JNU)",
-            location: "India",
-            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
-            
-            value_score: 94,
-            tags: "india delhi arts social science research public cheap best",
-            tuition: "50",
-            description: "A world-renowned destination for social sciences and humanities, known for its vibrant intellectual culture.",
-            scholarships: "Merit-cum-Means Scholarships, Junior Research Fellowship (JRF)."
-        },
-        {
-            id: "u44",
-            name: "National University of Singapore (NUS)",
-            location: "Singapore",
-            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
-            
+            id: "u1",
+            name: "Technical University of Munich",
+            location: "Germany",
+            image: "https://images.unsplash.com/photo-1532649538693-f3a2ec1bf8bd?auto=format&fit=crop&q=80&w=1000",
+            video_url: "https://www.youtube.com/embed/K8_eD897V4M",
             value_score: 95,
-            tags: "singapore asia top global best engineering business science",
-            tuition: "30,000",
-            description: "Consistently ranked as the top university in Asia, NUS offers a global approach to education and innovation.",
-            scholarships: "ASEAN Undergraduate Scholarship, NUS Global Merit Scholarship."
+            tags: "engineering europe germany technical cheap affordable",
+            tuition: "2,000",
+            description: "TUM is one of Europe's top universities, renowned for its engineering and technology programs.",
+            scholarships: "DAAD Scholarships, Deutschlandstipendium."
         },
         {
-            id: "u46",
-            name: "Princeton University",
+            id: "u2",
+            name: "Stanford University",
             location: "USA",
-            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
-            
+            image: "https://images.unsplash.com/photo-1533667611927-9943f7ede7af?auto=format&fit=crop&q=80&w=1000",
+            video_url: "https://www.youtube.com/embed/9XInD-N__f4",
             value_score: 98,
-            tags: "usa ivy league top elite research science humanities",
-            tuition: "58,000",
-            description: "World-renowned for its focus on undergraduate education and high-level research. Consistently ranks among the top globally.",
-            scholarships: "100% Need-Blind Admission, No-Loan Policy."
+            tags: "usa california research silicon-valley ivy-equivalent elite",
+            tuition: "57,000",
+            description: "Stanford University is one of the world's leading teaching and research institutions.",
+            scholarships: "Stanford Financial Aid, Knight-Hennessy Scholars."
         },
         {
-            id: "u50",
-            name: "McGill University",
-            location: "Canada",
-            image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
-            
-            value_score: 91,
-            tags: "canada montreal research medicine law science top best",
-            tuition: "25,000",
-            description: "One of Canada's most international universities, especially famous for its medical school and research output.",
-            scholarships: "McGill Entrance Bursaries, Prestige Scholarships."
+            id: "u4",
+            name: "Harvard University",
+            location: "USA",
+            image: "https://images.unsplash.com/photo-1576045057995-a50d6501a305?auto=format&fit=crop&q=80&w=1000",
+            video_url: "https://www.youtube.com/embed/6sqnS8S_V0U",
+            value_score: 98,
+            tags: "usa ivy-league elite research top global",
+            tuition: "55,000",
+            description: "Harvard is the oldest institution of higher learning in the United States.",
+            scholarships: "Harvard Financial Aid (Need-Blind)."
+        },
+        {
+            id: "u5",
+            name: "IIT Bombay",
+            location: "India",
+            image: "https://images.unsplash.com/photo-1596495573453-125032f913d3?auto=format&fit=crop&q=80&w=1000",
+            video_url: "https://www.youtube.com/embed/SRE7SOnR3S0",
+            value_score: 97,
+            tags: "india engineering tech elite top mumbai btech",
+            tuition: "3,000",
+            description: "IIT Bombay is one of the most prestigious engineering institutions in India.",
+            scholarships: "Merit-cum-Means Scholarship."
+        },
+        {
+            id: "u6",
+            name: "MIT Manipal",
+            location: "India",
+            image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000",
+            video_url: "https://www.youtube.com/embed/Z8bM_Z_N_7A",
+            value_score: 90,
+            tags: "engineering india technology btech private",
+            tuition: "5,000",
+            description: "Manipal Institute of Technology (MIT) offers premier B.Tech programs.",
+            scholarships: "Freeship & Merit-cum-Means."
         }
     ];
 
@@ -210,15 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const html = `
                 <div class="uni-card">
-                    <div style="position:relative; overflow:hidden; height:200px;">
+                    <div style="position:relative; overflow:hidden; height:200px; background:#f8fafc;">
+                        <!-- Base Layer: Authentic Real Image (Fail-Safe) -->
+                        <img src="${uni.image}" alt="${uni.name}" class="fallback-img" 
+                             style="opacity: 1; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1;">
+                        
+                        <!-- Top Layer: YouTube Video (Optional) -->
                         ${uni.video_url ? `
                             <iframe src="${uni.video_url}" 
                                 frameborder="0" allow="autoplay; encrypted-media" 
-                                style="width:100%; height:200px; border-radius:12px 12px 0 0; border:none;">
+                                style="width:100%; height:200px; border-radius:12px 12px 0 0; border:none; position:absolute; top:0; left:0; z-index:2; background:transparent;">
                             </iframe>
-                        ` : `
-                            <img src="${uni.image}" alt="${uni.name}" class="fallback-img" style="opacity: 1; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-                        `}
+                        ` : ''}
+                        
                         ${roiBadgeHtml}
                     </div>
                     <div class="uni-content">
