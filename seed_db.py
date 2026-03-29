@@ -7,7 +7,7 @@ universities = [
         "id": "u1",
         "name": "Technical University of Munich",
         "location": "Germany",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 2000,
         "tags": "engineering europe germany technical cheap affordable",
@@ -18,7 +18,7 @@ universities = [
         "id": "u2",
         "name": "MIT Manipal",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 5000,
         "tags": "engineering india technology btech private",
@@ -29,7 +29,7 @@ universities = [
         "id": "u3",
         "name": "University of Toronto",
         "location": "Canada",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 45000,
         "tags": "canada toronto research global top medicine arts science",
@@ -40,7 +40,7 @@ universities = [
         "id": "u4",
         "name": "Imperial College London",
         "location": "UK",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 50000,
         "tags": "uk london engineering science prestigious top medical",
@@ -51,7 +51,7 @@ universities = [
         "id": "u6",
         "name": "Harvard University",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 55000,
         "tags": "usa america ivy league top prestigious law business medicine arts",
@@ -62,7 +62,7 @@ universities = [
         "id": "u7",
         "name": "ETH Zurich",
         "location": "Switzerland",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 1500,
         "tags": "europe switzerland engineering science cheap affordable top",
@@ -73,7 +73,7 @@ universities = [
         "id": "u9",
         "name": "University of Melbourne",
         "location": "Australia",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 32000,
         "tags": "australia melbourne arts science research global",
@@ -84,7 +84,7 @@ universities = [
         "id": "u10",
         "name": "Sorbonne University",
         "location": "France",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 3000,
         "tags": "europe france paris arts humanities cheap science",
@@ -97,7 +97,7 @@ universities = [
         "id": "u11",
         "name": "Indian Institute of Technology (IIT) Bombay",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 3000,
         "tags": "engineering india mumbai technology top best btech public",
@@ -108,7 +108,7 @@ universities = [
         "id": "u12",
         "name": "Indian Institute of Technology (IIT) Delhi",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 3000,
         "tags": "engineering india delhi top best btech public research",
@@ -119,7 +119,7 @@ universities = [
         "id": "u13",
         "name": "Indian Institute of Management (IIM) Ahmedabad",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 35000,
         "tags": "india mba business management top elite ahmedabad postgrad",
@@ -130,7 +130,7 @@ universities = [
         "id": "u14",
         "name": "BITS Pilani",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 7000,
         "tags": "india engineering technology private top best btech pilani",
@@ -141,7 +141,7 @@ universities = [
         "id": "u15",
         "name": "Vellore Institute of Technology (VIT)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 4500,
         "tags": "india engineering technology private btech vellore popular",
@@ -152,7 +152,7 @@ universities = [
         "id": "u16",
         "name": "Delhi University (DU)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 200,
         "tags": "india cheap public arts commerce science new delhi central",
@@ -163,7 +163,7 @@ universities = [
         "id": "u17",
         "name": "University of Oxford",
         "location": "UK",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 45000,
         "tags": "uk europe elite top best humanities science law medicine",
@@ -174,7 +174,7 @@ universities = [
         "id": "u18",
         "name": "University of Cambridge",
         "location": "UK",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 48000,
         "tags": "uk europe elite top science maths engineering best",
@@ -185,7 +185,7 @@ universities = [
         "id": "u19",
         "name": "Massachusetts Institute of Technology (MIT)",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 58000,
         "tags": "usa engineering technology science elite top best coding",
@@ -196,7 +196,7 @@ universities = [
         "id": "u20",
         "name": "Stanford University",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 57000,
         "tags": "usa california elite business engineering top silicon valley",
@@ -207,7 +207,7 @@ universities = [
         "id": "u21",
         "name": "Yale University",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 60000,
         "tags": "usa ivy league arts law humanities top elite",
@@ -218,7 +218,7 @@ universities = [
         "id": "u22",
         "name": "California Institute of Technology (Caltech)",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 56000,
         "tags": "usa california science engineering physics elite tiny",
@@ -229,7 +229,7 @@ universities = [
         "id": "u23",
         "name": "University of British Columbia (UBC)",
         "location": "Canada",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 32000,
         "tags": "canada vancouver science arts beautiful research popular",
@@ -240,7 +240,7 @@ universities = [
         "id": "u24",
         "name": "University of Sydney",
         "location": "Australia",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 34000,
         "tags": "australia sydney arts medicine law global popular",
@@ -251,7 +251,7 @@ universities = [
         "id": "u25",
         "name": "Kyoto University",
         "location": "Japan",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 5000,
         "tags": "japan asia science engineering cheap public research",
@@ -264,7 +264,7 @@ universities = [
         "id": "u26",
         "name": "London School of Economics (LSE)",
         "location": "UK",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 32000,
         "tags": "uk london economics finance politics law business elite",
@@ -275,7 +275,7 @@ universities = [
         "id": "u27",
         "name": "The Juilliard School",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 53000,
         "tags": "usa new york arts music dance drama prestigious performing",
@@ -286,7 +286,7 @@ universities = [
         "id": "u28",
         "name": "INSEAD",
         "location": "France",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 100000,
         "tags": "france singapore mba business management elite postgrad consulting",
@@ -297,7 +297,7 @@ universities = [
         "id": "u29",
         "name": "National Law School of India University (NLSIU)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 4000,
         "tags": "india law bangalore clat elite best public",
@@ -308,7 +308,7 @@ universities = [
         "id": "u30",
         "name": "Parsons School of Design",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 57000,
         "tags": "usa new york arts design fashion architecture elite creative",
@@ -319,7 +319,7 @@ universities = [
         "id": "u31",
         "name": "Sciences Po",
         "location": "France",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 15000,
         "tags": "france paris politics international relations law humanities",
@@ -330,7 +330,7 @@ universities = [
         "id": "u32",
         "name": "National Institute of Design (NID)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 6000,
         "tags": "india design arts ahmedabad creative elite best public",
@@ -341,7 +341,7 @@ universities = [
         "id": "u33",
         "name": "Culinary Institute of America (CIA)",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 40000,
         "tags": "usa new york culinary food hospitality elite chefs",
@@ -352,7 +352,7 @@ universities = [
         "id": "u34",
         "name": "Bocconi University",
         "location": "Italy",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 16000,
         "tags": "italy milan europe business economics finance management",
@@ -363,7 +363,7 @@ universities = [
         "id": "u35",
         "name": "Berklee College of Music",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 49000,
         "tags": "usa boston music arts production creative elite jazz",
@@ -376,7 +376,7 @@ universities = [
         "id": "u36",
         "name": "Indian Institute of Science (IISc)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 500,
         "tags": "india bangalore science research elite top best public phd",
@@ -387,7 +387,7 @@ universities = [
         "id": "u37",
         "name": "Indian Institute of Management Bangalore (IIMB)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 32000,
         "tags": "india bangalore mba business management top elite postgrad",
@@ -398,7 +398,7 @@ universities = [
         "id": "u38",
         "name": "RV College of Engineering (RVCE)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 4000,
         "tags": "india bangalore engineering technology private popular btech",
@@ -409,7 +409,7 @@ universities = [
         "id": "u39",
         "name": "PES University",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 5000,
         "tags": "india bangalore engineering technology private popular btech",
@@ -422,7 +422,7 @@ universities = [
         "id": "u40",
         "name": "Jawaharlal Nehru University (JNU)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 50,
         "tags": "india delhi arts social science research public cheap best",
@@ -433,7 +433,7 @@ universities = [
         "id": "u41",
         "name": "Jamia Millia Islamia",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 300,
         "tags": "india delhi central public architecture engineering law arts",
@@ -444,7 +444,7 @@ universities = [
         "id": "u42",
         "name": "Netaji Subhas University of Technology (NSUT)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 3500,
         "tags": "india delhi engineering technology public top btech",
@@ -455,7 +455,7 @@ universities = [
         "id": "u43",
         "name": "Delhi Technological University (DTU)",
         "location": "India",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 3500,
         "tags": "india delhi engineering technology public top btech",
@@ -468,7 +468,7 @@ universities = [
         "id": "u44",
         "name": "National University of Singapore (NUS)",
         "location": "Singapore",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 30000,
         "tags": "singapore asia top global best engineering business science",
@@ -479,7 +479,7 @@ universities = [
         "id": "u45",
         "name": "Tsinghua University",
         "location": "China",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 5000,
         "tags": "china asia engineering technology science top global best",
@@ -490,7 +490,7 @@ universities = [
         "id": "u46",
         "name": "Princeton University",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 58000,
         "tags": "usa ivy league top elite research science humanities",
@@ -501,7 +501,7 @@ universities = [
         "id": "u47",
         "name": "Columbia University",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 62000,
         "tags": "usa new york ivy league top elite journalism business law",
@@ -512,7 +512,7 @@ universities = [
         "id": "u48",
         "name": "University of Chicago",
         "location": "USA",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 60000,
         "tags": "usa chicago elite economics social science law research",
@@ -523,7 +523,7 @@ universities = [
         "id": "u49",
         "name": "University of Tokyo",
         "location": "Japan",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 5000,
         "tags": "japan asia top public research engineering science",
@@ -534,7 +534,7 @@ universities = [
         "id": "u50",
         "name": "McGill University",
         "location": "Canada",
-        "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzgxNjdhNGE5ZDI3ZDRmYjkyZGYzYjFiYjFmOGY1YmYxZGY1ZGIyNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKDkDBIDJieA1Fe/giphy.gif",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000",
         
         "tuition": 25000,
         "tags": "canada montreal research medicine law science top best",
