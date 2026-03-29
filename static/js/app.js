@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u1",
             name: "Technical University of Munich",
             location: "Germany",
-            image: "https://images.unsplash.com/photo-1532649538693-f3a2ec1bf8bd?auto=format&fit=crop&q=80&w=1000",
+            image: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&q=80&w=1000",
             value_score: 95,
             tags: "engineering europe germany technical cheap affordable",
             tuition: "2,000",
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u2",
             name: "Stanford University",
             location: "USA",
-            image: "https://images.unsplash.com/photo-1533667611927-9943f7ede7af?auto=format&fit=crop&q=80&w=1000",
+            image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&q=80&w=1000",
             value_score: 98,
             tags: "usa california research silicon-valley ivy-equivalent elite",
             tuition: "57,000",
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u4",
             name: "Harvard University",
             location: "USA",
-            image: "https://images.unsplash.com/photo-1576045057995-a50d6501a305?auto=format&fit=crop&q=80&w=1000",
+            image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1000",
             value_score: 98,
             tags: "usa ivy-league elite research top global",
             tuition: "55,000",
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "u5",
             name: "IIT Bombay",
             location: "India",
-            image: "https://images.unsplash.com/photo-1596495573453-125032f913d3?auto=format&fit=crop&q=80&w=1000",
+            image: "https://images.unsplash.com/photo-1498243639159-414ccead8bd0?auto=format&fit=crop&q=80&w=1000",
             value_score: 97,
             tags: "india engineering tech elite top mumbai btech",
             tuition: "3,000",
@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="uni-card">
                     <div style="position:relative; overflow:hidden; height:200px; background:#f8fafc;">
                         <img src="${uni.image}" alt="${uni.name}" class="fallback-img" 
+                             onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1000'; this.onerror=null;"
                              style="opacity: 1; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1;">
                         ${roiBadgeHtml}
                     </div>
