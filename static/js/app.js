@@ -17,89 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- 2.b AI Simulation Data (Fallback for GitHub Pages) ----
     const mockUniversities = [
-        { 
-            id: "u1", 
-            name: "Technical University of Munich", 
-            location: "Germany", 
-            image: "/static/images/university_hero.png", 
-            value_score: 95, 
-            tags: "engineering europe germany", 
-            tuition: "0 - 1,500",
-            description: "TUM is a leading research university in Europe, known for its excellence in engineering, natural sciences, and technology. It maintains a strong ROI due to Germany's low-to-zero tuition model.",
-            scholarships: "DAAD Global Excellence Scholarship, Deutschlandstipendium."
-        },
-        { 
-            id: "u2", 
-            name: "Stanford University", 
-            location: "USA", 
-            image: "/static/images/university_hero.png", 
-            value_score: 98, 
-            tags: "usa ivy elite technology", 
-            tuition: "57,000",
-            description: "Situated in the heart of Silicon Valley, Stanford is the ultimate driver of global startup culture. It offers elite programs spanning CS, Business, and Law with a laid-back, beautiful Californian aesthetic.",
-            scholarships: "Knight-Hennessy Scholars, Stanford Financial Aid (Need-Based)."
-        },
-        { 
-            id: "u3", 
-            name: "University of Toronto", 
-            location: "Canada", 
-            image: "/static/images/university_hero.png", 
-            value_score: 88, 
-            tags: "canada research global", 
-            tuition: "45,000",
-            description: "Canada's #1 research university, UofT offers a diverse academic environment and is consistently ranked among the world's best for graduate employability.",
-            scholarships: "Lester B. Pearson International Scholarship, Ontario Graduate Scholarship."
-        },
-        { 
-            id: "u4", 
-            name: "Imperial College London", 
-            location: "UK", 
-            image: "/static/images/university_hero.png", 
-            value_score: 92, 
-            tags: "uk engineering science prestigious", 
-            tuition: "52,000",
-            description: "Imperial College London is a world-class university with a mission to benefit society through excellence in science, engineering, medicine, and business.",
-            scholarships: "Presidents Undergraduate Scholarship, Imperial Bursary."
-        },
-        { 
-            id: "u6", 
-            name: "Harvard University", 
-            location: "USA", 
-            image: "/static/images/university_hero.png", 
-            value_score: 91, 
-            tags: "usa ivy prestigious", 
-            tuition: "58,000",
-            description: "As the oldest institution of higher learning in the United States, Harvard is synonymous with prestige, academic rigor, and a powerful global alumni network.",
-            scholarships: "Harvard University Financial Aid (100% Need-Blind for International)."
-        },
-        { 
-            id: "u11", 
-            name: "IIT Bombay", 
-            location: "India", 
-            image: "/static/images/university_hero.png", 
-            value_score: 98, 
-            tags: "engineering india mumbai top", 
-            tuition: "2,500",
-            description: "Indian Institute of Technology Bombay is the premier institution for engineering in India, attracting the highest rankers in the JEE Advanced every year.",
-            scholarships: "MHRD Merit Scholarships, IIT Bombay Alumni Association Awards."
-        },
-        { 
-            id: "u12", 
-            name: "IIT Delhi", 
-            location: "India", 
-            image: "/static/images/university_hero.png", 
-            value_score: 97, 
-            tags: "engineering india delhi top best", 
-            tuition: "3,000",
-            description: "Located in the national capital, IIT Delhi excels in advanced technical research and produces some of the sharpest analytical minds in global tech.",
-            scholarships: "MCM Scholarships, Alumni Association Grants."
-        },
         {
             id: "u1",
             name: "Technical University of Munich",
             location: "Germany",
             image: "https://images.unsplash.com/photo-1532649538693-f3a2ec1bf8bd?auto=format&fit=crop&q=80&w=1000",
-            video_url: "https://www.youtube.com/embed/K8_eD897V4M",
             value_score: 95,
             tags: "engineering europe germany technical cheap affordable",
             tuition: "2,000",
@@ -111,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Stanford University",
             location: "USA",
             image: "https://images.unsplash.com/photo-1533667611927-9943f7ede7af?auto=format&fit=crop&q=80&w=1000",
-            video_url: "https://www.youtube.com/embed/9XInD-N__f4",
             value_score: 98,
             tags: "usa california research silicon-valley ivy-equivalent elite",
             tuition: "57,000",
@@ -123,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Harvard University",
             location: "USA",
             image: "https://images.unsplash.com/photo-1576045057995-a50d6501a305?auto=format&fit=crop&q=80&w=1000",
-            video_url: "https://www.youtube.com/embed/6sqnS8S_V0U",
             value_score: 98,
             tags: "usa ivy-league elite research top global",
             tuition: "55,000",
@@ -135,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "IIT Bombay",
             location: "India",
             image: "https://images.unsplash.com/photo-1596495573453-125032f913d3?auto=format&fit=crop&q=80&w=1000",
-            video_url: "https://www.youtube.com/embed/SRE7SOnR3S0",
             value_score: 97,
             tags: "india engineering tech elite top mumbai btech",
             tuition: "3,000",
@@ -147,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "MIT Manipal",
             location: "India",
             image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000",
-            video_url: "https://www.youtube.com/embed/Z8bM_Z_N_7A",
             value_score: 90,
             tags: "engineering india technology btech private",
             tuition: "5,000",
@@ -199,18 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const html = `
                 <div class="uni-card">
                     <div style="position:relative; overflow:hidden; height:200px; background:#f8fafc;">
-                        <!-- Base Layer: Authentic Real Image (Fail-Safe) -->
                         <img src="${uni.image}" alt="${uni.name}" class="fallback-img" 
                              style="opacity: 1; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1;">
-                        
-                        <!-- Top Layer: YouTube Video (Optional) -->
-                        ${uni.video_url ? `
-                            <iframe src="${uni.video_url}" 
-                                frameborder="0" allow="autoplay; encrypted-media" 
-                                style="width:100%; height:200px; border-radius:12px 12px 0 0; border:none; position:absolute; top:0; left:0; z-index:2; background:transparent;">
-                            </iframe>
-                        ` : ''}
-                        
                         ${roiBadgeHtml}
                     </div>
                     <div class="uni-content">

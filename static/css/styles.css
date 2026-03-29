@@ -684,14 +684,6 @@ a {
     filter: brightness(0.9) contrast(1.1);
 }
 
-.uni-card iframe {
-    width: 100%;
-    height: 200px;
-    border-radius: 12px 12px 0 0;
-    border: none;
-    display: block;
-}
-
 .fallback-img {
     position: absolute;
     top: 0;
