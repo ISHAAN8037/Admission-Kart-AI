@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session
-from models import db, UniversityModel, LeadModel
+from models import db, UniversityModel, LeadModel, ChatLogModel
 import os
 import smtplib
 from email.mime.text import MIMEText
@@ -9,6 +9,8 @@ from flask_cors import CORS
 import google.generativeai as genai
 import json
 import threading
+from functools import wraps
+from datetime import datetime
 
 load_dotenv()
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY", ""))
@@ -28,6 +30,78 @@ db.init_app(app)
 def home():
     """Route to render the Admission Kart homepage"""
     return render_template('index.html')
+
+# ---- Admin Authentication Layer ----
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get('logged_in'):
+            return render_template('admin/login.html', error="Admin authentication required.")
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        if username == os.environ.get('ADMIN_USERNAME') and password == os.environ.get('ADMIN_PASSWORD'):
+            session['logged_in'] = True
+            return jsonify({"success": True})
+        return jsonify({"success": False, "error": "Invalid administrative credentials"}), 401
+    return render_template('admin/login.html')
+
+@app.route('/admin/logout')
+def admin_logout():
+    session.pop('logged_in', None)
+    return render_template('admin/login.html', message="Logged out successfully.")
+
+# ---- Admin Controllers ----
+
+@app.route('/admin/leads', methods=['GET'])
+@login_required
+def admin_leads():
+    leads = LeadModel.query.order_by(LeadModel.created_at.desc()).all()
+    return render_template('admin/leads.html', leads=leads)
+
+@app.route('/api/admin/leads/<int:lead_id>', methods=['DELETE', 'POST'])
+@login_required
+def manage_lead(lead_id):
+    lead = LeadModel.query.get_or_404(lead_id)
+    if request.method == 'DELETE':
+        db.session.delete(lead)
+        db.session.commit()
+        return jsonify({"success": True})
+    elif request.method == 'POST':
+        data = request.json
+        lead.status = data.get('status', lead.status)
+        db.session.commit()
+        return jsonify({"success": True, "new_status": lead.status})
+
+@app.route('/admin/universities', methods=['GET'])
+@login_required
+def admin_universities():
+    unis = [u.serialize() for u in UniversityModel.query.all()]
+    return render_template('admin/universities.html', universities=unis)
+
+@app.route('/api/admin/universities/<uni_id>', methods=['POST'])
+@login_required
+def update_university_admin(uni_id):
+    u = UniversityModel.query.get_or_404(uni_id)
+    data = request.json
+    u.tuition = data.get('tuition', u.tuition)
+    u.scholarships = data.get('scholarships', u.scholarships)
+    u.video_url = data.get('video_url', u.video_url)
+    db.session.commit()
+    return jsonify({"success": True})
+
+@app.route('/admin/chat-logs', methods=['GET'])
+@login_required
+def admin_chat_logs():
+    logs = [log.serialize() for log in ChatLogModel.query.order_by(ChatLogModel.timestamp.desc()).all()]
+    return render_template('admin/chat_logs.html', logs=logs)
 
 def get_roi_score(u):
     """Utility to calculate ROI for any given university model object"""
@@ -371,6 +445,18 @@ def chat_agent():
         
         response = model.generate_content(prompt)
         reply = response.text.strip()
+        
+        # Save to ChatLogModel for AI Monitoring
+        try:
+            new_log = ChatLogModel(
+                user_message=message,
+                ai_response=reply,
+                persona_mode=mode
+            )
+            db.session.add(new_log)
+            db.session.commit()
+        except Exception as log_err:
+            print(f"Logging Error: {log_err}")
         
         # Contextual Recommendation Logic
         recommended_unis = []

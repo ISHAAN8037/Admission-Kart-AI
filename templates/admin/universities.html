@@ -1,0 +1,167 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}University Configuration Suite{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 divide-x divide-slate-200">
+    <!-- List Sidebar -->
+    <div class="lg:col-span-1 h-[70vh] overflow-y-auto">
+        <div class="p-4 bg-slate-50 border-b border-slate-200 sticky top-0 z-10">
+            <input type="text" id="uni-search" placeholder="Search universities..." 
+                class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 outline-none">
+        </div>
+        <div class="divide-y divide-slate-100" id="uni-list">
+            {% for uni in universities %}
+            <button onclick="editUniversity('{{ uni.id }}')" 
+                class="w-full text-left p-4 hover:bg-slate-50 transition-all group border-l-4 border-transparent hover:border-teal-500 uni-item"
+                data-name="{{ uni.name }}">
+                <div class="flex items-center space-x-3">
+                    <img src="{{ uni.image }}" class="h-10 w-10 rounded-lg object-cover shadow-sm">
+                    <div>
+                        <div class="font-bold text-slate-800 text-sm truncate w-40">{{ uni.name }}</div>
+                        <div class="text-xs text-slate-500">{{ uni.location }}</div>
+                    </div>
+                </div>
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Edit Form -->
+    <div class="lg:col-span-2 p-8 bg-white h-[70vh] overflow-y-auto" id="edit-pane">
+        <div id="empty-edit" class="h-full flex flex-col items-center justify-center text-slate-400">
+            <i class="ph ph-hand-pointing text-6xl mb-4 opacity-20"></i>
+            <p class="text-lg font-medium">Select a university to begin editing</p>
+        </div>
+
+        <form id="edit-form" class="hidden space-y-8 animate-in fade-in duration-300">
+            <input type="hidden" id="edit-id">
+            <div class="flex items-center space-x-4 mb-8">
+                <img id="edit-header-img" src="" class="h-16 w-24 rounded-xl object-cover shadow-md">
+                <div>
+                    <h3 id="edit-header-name" class="text-2xl font-bold text-slate-900"></h3>
+                    <p id="edit-header-loc" class="text-slate-500"></p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Annual Tuition (USD)</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">$</span>
+                        <input type="number" id="edit-tuition" 
+                            class="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 outline-none transition-all">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Scholarships & Funding</label>
+                    <textarea id="edit-scholarships" rows="1"
+                        class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 outline-none transition-all"></textarea>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <label class="block text-sm font-bold text-slate-700">Video Embed URL (YouTube)</label>
+                <input type="text" id="edit-video-url" oninput="updateVideoPreview()"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 outline-none transition-all"
+                    placeholder="https://www.youtube.com/embed/VIDEO_ID">
+                
+                <div class="bg-slate-900 rounded-2xl overflow-hidden aspect-video shadow-2xl relative group">
+                    <div id="video-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 bg-slate-900">
+                        <i class="ph ph-video-camera-slash text-4xl mb-2"></i>
+                        <p class="text-xs font-bold uppercase tracking-widest">No Valid Video URL</p>
+                    </div>
+                    <iframe id="video-preview" class="w-full h-full hidden" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <p class="text-xs text-slate-400 italic">Preview your cinematic branding before going live.</p>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100 flex justify-end space-y-4">
+                <button type="submit" 
+                    class="bg-teal-500 hover:bg-teal-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-teal-500/20 transition-all">
+                    Commit Changes to Satellite DB
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const unis = {{ universities|tojson }};
+    const editForm = document.getElementById('edit-form');
+    const emptyEdit = document.getElementById('empty-edit');
+
+    function editUniversity(id) {
+        const uni = unis.find(u => u.id === id);
+        if(!uni) return;
+
+        emptyEdit.classList.add('hidden');
+        editForm.classList.remove('hidden');
+
+        document.getElementById('edit-id').value = uni.id;
+        document.getElementById('edit-header-name').textContent = uni.name;
+        document.getElementById('edit-header-loc').textContent = uni.location;
+        document.getElementById('edit-header-img').src = uni.image;
+        document.getElementById('edit-tuition').value = uni.tuition;
+        document.getElementById('edit-scholarships').value = uni.scholarships;
+        document.getElementById('edit-video-url').value = uni.video_url || '';
+
+        updateVideoPreview();
+    }
+
+    function updateVideoPreview() {
+        const url = document.getElementById('edit-video-url').value;
+        const iframe = document.getElementById('video-preview');
+        const placeholder = document.getElementById('video-placeholder');
+
+        if(url && (url.includes('youtube.com/embed/') || url.includes('youtube-nocookie.com/embed/'))) {
+            iframe.src = url;
+            iframe.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+        } else {
+            iframe.src = '';
+            iframe.classList.add('hidden');
+            placeholder.classList.remove('hidden');
+        }
+    }
+
+    document.getElementById('edit-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('edit-id').value;
+        const payload = {
+            tuition: document.getElementById('edit-tuition').value,
+            scholarships: document.getElementById('edit-scholarships').value,
+            video_url: document.getElementById('edit-video-url').value
+        };
+
+        try {
+            const res = await fetch(`/api/admin/universities/${id}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if(data.success) {
+                showToast("University data synchronized successfully.");
+                // Update local data object
+                const index = unis.findIndex(u => u.id === id);
+                if(index !== -1) {
+                    unis[index].tuition = payload.tuition;
+                    unis[index].scholarships = payload.scholarships;
+                    unis[index].video_url = payload.video_url;
+                }
+            }
+        } catch (err) {
+            showToast("Synchronization failure.", "error");
+        }
+    });
+
+    document.getElementById('uni-search').addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('.uni-item').forEach(item => {
+            const name = item.getAttribute('data-name').toLowerCase();
+            item.classList.toggle('hidden', !name.includes(q));
+        });
+    });
+</script>
+{% endblock %}

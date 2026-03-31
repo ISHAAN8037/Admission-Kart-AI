@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("🚀 Admission Kart AI Platform [v1.2] - Admin Command Center Active");
+
     // ---- 1. Sticky Navbar ----
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -757,6 +759,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             }
+        });
+    }
+
+    // ---- 6. Mobile Navigation Controller ----
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+    const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMobileNav(state) {
+        if(mobileNav) mobileNav.classList.toggle('active', state);
+        if(mobileNavOverlay) mobileNavOverlay.classList.toggle('active', state);
+    }
+
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => toggleMobileNav(true));
+    }
+
+    if (closeMobileMenuBtn) {
+        closeMobileMenuBtn.addEventListener('click', () => toggleMobileNav(false));
+    }
+
+    if (mobileNavOverlay) {
+        mobileNavOverlay.addEventListener('click', () => toggleMobileNav(false));
+    }
+
+    if (mobileLinks) {
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMobileNav(false));
         });
     }
 

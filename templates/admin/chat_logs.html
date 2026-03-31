@@ -1,0 +1,53 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}AI Monitoring & Audit Console{% endblock %}
+
+{% block content %}
+<div class="p-6 bg-slate-50 border-b border-slate-200">
+    <h2 class="text-lg font-bold text-slate-800">Historical AI Interactions</h2>
+    <p class="text-sm text-slate-500">Audit the Elite Architect's performance and student intent patterns</p>
+</div>
+
+<div class="divide-y divide-slate-100 h-[75vh] overflow-y-auto bg-slate-50">
+    {% for log in logs %}
+    <div class="p-6 bg-white hover:bg-slate-50 transition-all border-l-4 {% if 'SCHOLARSHIP' in log.persona_mode %}border-amber-400{% elif 'VISA' in log.persona_mode %}border-teal-400{% else %}border-slate-300{% endif %}">
+        <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center space-x-3">
+                <div class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[10px] font-bold uppercase tracking-widest">
+                    {{ log.timestamp }}
+                </div>
+                <div class="px-2 py-1 bg-teal-100 text-teal-700 rounded text-[10px] font-bold uppercase tracking-widest">
+                    Persona: {{ log.persona_mode }}
+                </div>
+            </div>
+            <div class="text-slate-300 text-xs font-mono">#{{ log.id }}</div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-2">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Student Query</div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-slate-700 text-sm italic">
+                    "{{ log.user_message }}"
+                </div>
+            </div>
+            <div class="space-y-2">
+                <div class="text-[10px] font-bold text-teal-600 uppercase tracking-widest">Architect Response</div>
+                <div class="p-4 bg-white rounded-xl border border-teal-100 text-slate-800 text-sm shadow-sm">
+                    {{ log.ai_response }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    {% if not logs %}
+    <div class="p-20 text-center">
+        <div class="inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100 text-slate-300 mb-4">
+            <i class="ph ph-chat-circle-dots text-4xl"></i>
+        </div>
+        <h3 class="text-slate-500 font-bold">No AI interactions recorded yet.</h3>
+        <p class="text-slate-400 text-sm mt-1">Chat logs will appear here as students interact with the Elite Architect.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

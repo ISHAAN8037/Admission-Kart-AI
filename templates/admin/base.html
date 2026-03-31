@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Kart | Admin Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+    <style>
+        :root {
+            --navy: #1a1f36;
+            --gold: #f6ad55;
+            --teal: #38b2ac;
+        }
+        .sidebar { background: var(--navy); }
+        .nav-link:hover { background: rgba(255,255,255,0.05); }
+        .nav-link.active { background: var(--teal); color: white; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar w-64 flex-shrink-0 flex flex-col text-slate-300">
+            <div class="p-6 border-b border-slate-700">
+                <a href="/" class="flex items-center space-x-2 text-white font-bold text-xl">
+                    <i class="ph-bold ph-graduation-cap text-2xl"></i>
+                    <span>Admin Kart</span>
+                </a>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="/admin/leads" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all {% if request.path == '/admin/leads' %}active{% endif %}">
+                    <i class="ph ph-users-three text-xl"></i>
+                    <span>Lead Dashboard</span>
+                </a>
+                <a href="/admin/universities" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all {% if request.path == '/admin/universities' %}active{% endif %}">
+                    <i class="ph ph-buildings text-xl"></i>
+                    <span>University Manager</span>
+                </a>
+                <a href="/admin/chat-logs" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all {% if request.path == '/admin/chat-logs' %}active{% endif %}">
+                    <i class="ph ph-chats text-xl"></i>
+                    <span>AI Monitoring</span>
+                </a>
+            </nav>
+            <div class="p-6 border-t border-slate-700">
+                <a href="/admin/logout" class="flex items-center space-x-3 text-red-400 hover:text-red-300 transition-colors">
+                    <i class="ph ph-sign-out text-xl"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <header class="mb-8 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-slate-900">{% block title %}{% endblock %}</h1>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-slate-500">Welcome, <strong>Admin</strong></span>
+                    <div class="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center text-white">
+                        <i class="ph-bold ph-user"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Alert/Toast Container -->
+    <div id="toast-container" class="fixed bottom-8 right-8 space-y-4 z-50"></div>
+
+    <script>
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-lg shadow-lg text-white transform transition-all duration-300 translate-y-0 opacity-100 ${type === 'success' ? 'bg-teal-500' : 'bg-red-500'}`;
+            toast.innerHTML = `<div class="flex items-center space-x-3"><i class="ph-bold ${type === 'success' ? 'ph-check-circle' : 'ph-warning'}"></i><span>${message}</span></div>`;
+            document.getElementById('toast-container').appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('translate-y-8', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

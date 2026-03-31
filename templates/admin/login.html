@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Admission Kart Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+    <style>
+        :root { --navy: #1a1f36; --teal: #38b2ac; }
+        .bg-navy { background: var(--navy); }
+    </style>
+</head>
+<body class="bg-navy h-screen flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-500">
+        <div class="p-8 text-center bg-slate-50 border-b border-slate-100">
+            <div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-500 text-white shadow-lg mb-4">
+                <i class="ph ph-graduation-cap text-3xl"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-slate-900">Admin Control Center</h1>
+            <p class="text-slate-500 mt-2">Enter credentials to manage Admission Kart</p>
+        </div>
+        
+        <form id="login-form" class="p-8 space-y-6">
+            <div id="error-box" class="hidden p-4 rounded-lg bg-red-50 text-red-600 text-sm border border-red-100 flex items-center space-x-2">
+                <i class="ph ph-warning-circle"></i>
+                <span id="error-msg"></span>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Username</label>
+                <div class="relative">
+                    <i class="ph ph-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" name="username" required
+                        class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all"
+                        placeholder="admin_user">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+                <div class="relative">
+                    <i class="ph ph-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="password" name="password" required
+                        class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all"
+                        placeholder="••••••••">
+                </div>
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-teal-500/20 transition-all hover:-translate-y-0.5 active:translate-y-0">
+                Log In to Command Center
+            </button>
+        </form>
+
+        <div class="p-6 text-center text-xs text-slate-400 uppercase tracking-widest border-t border-slate-100">
+            &copy; 2026 ADMISSION KART SECURITY INFRA
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            const errorBox = document.getElementById('error-box');
+            const errorMsg = document.getElementById('error-msg');
+
+            try {
+                const res = await fetch('/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+                const result = await res.json();
+                
+                if (result.success) {
+                    window.location.href = '/admin/leads';
+                } else {
+                    errorMsg.textContent = result.error;
+                    errorBox.classList.remove('hidden');
+                }
+            } catch (err) {
+                errorMsg.textContent = "System connection failure. Verify backend status.";
+                errorBox.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

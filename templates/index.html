@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=11">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=12">
 </head>
 <body>
     <!-- Navigation -->
@@ -34,6 +34,7 @@
                 <a href="#services">Services</a>
                 <a href="#process">Process</a>
                 <a href="#trust">Success Stories</a>
+                <a href="/admin/login" class="admin-desktop-link" style="background: var(--accent-teal); color: white; padding: 6px 12px; border-radius: 6px;"><i class="ph ph-shield-check"></i> Admin</a>
             </nav>
             
             <div class="nav-actions">
@@ -67,6 +68,32 @@
         </div>
     </aside>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="#" class="logo">
+                <i class="ph ph-graduation-cap"></i>
+                <span>Admission <strong>Kart</strong></span>
+            </a>
+            <button class="close-mobile-menu" id="close-mobile-menu">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#process" class="mobile-link">Process</a>
+            <a href="#trust" class="mobile-link">Success Stories</a>
+            <div class="nav-divider"></div>
+            <a href="/admin/login" class="mobile-link admin-link" style="color: var(--accent-teal); font-weight: 700;">
+                <i class="ph-bold ph-shield-check"></i> Admin Command Center
+            </a>
+        </div>
+        <div class="mobile-nav-footer">
+            <a href="#" class="btn btn-primary fw apply-trigger">Free Counseling</a>
+        </div>
+    </div>
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
 
     <!-- UI Modal for Details -->
     <div class="modal-overlay" id="details-modal">
@@ -332,6 +359,7 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#">Contact</a></li>
+                        <li><a href="/admin/login" class="footer-admin-link" style="color: var(--accent-teal) !important; font-weight: 700;">Staff Portal</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -341,12 +369,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Admission Kart. All Rights Reserved.
+                &copy; 2026 Admission Kart. All Rights Reserved. | <a href="/admin/login" class="staff-login-link" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 0.85rem;">Staff Login</a>
             </div>
         </div>
     </footer>
 
     <!-- Script -->
-    <script src="{{ url_for('static', filename='js/app.js') }}?v=11"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}?v=13"></script>
 </body>
 </html>
