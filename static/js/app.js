@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("🚀 Admission Kart AI Platform [v1.3] - Admin Command Center Active");
+    console.log("🚀 Admission Kart AI Platform [v1.4] - Admin Command Center Active");
 
     // ---- 1. Sticky Navbar ----
     const navbar = document.querySelector('.navbar');
@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.preventDefault();
                     if (backendModal) {
                         console.log("🔓 Opening Backend Connection Modal...");
-                        backendModal.style.display = 'flex';
+                        backendModal.classList.add('active');
                     } else {
                         console.error("❌ backend-modal element not found in DOM!");
                     }
@@ -837,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userUrl) {
                 if (!userUrl.startsWith('http')) userUrl = 'https://' + userUrl;
                 localStorage.setItem('admissionKart_backendUrl', userUrl);
-                if (backendModal) backendModal.style.display = 'none';
+                if (backendModal) backendModal.classList.remove('active');
                 alert("✅ Backend Connected! Redirecting to your secure Admin Panel...");
                 window.location.href = `${userUrl.replace(/\/$/, '')}/admin/login`;
             } else {
@@ -849,7 +849,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [closeBackendBtn, cancelBackendBtn].forEach(btn => {
         if (btn) {
             btn.addEventListener('click', () => {
-                if (backendModal) backendModal.style.display = 'none';
+                if (backendModal) backendModal.classList.remove('active');
             });
         }
     });
