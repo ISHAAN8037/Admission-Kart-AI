@@ -20,8 +20,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'super_secret_consultancy_key_for_
 CORS(app) # Enable cross-origin calls from Netlify
 
 # Configure SQLite Database
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'admission_kart.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///' + os.path.join(os.path.abspath(os.path.dirname(__file__)), 'admission_kart.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -47,7 +46,7 @@ def admin_login():
         username = request.form.get('username')
         password = request.form.get('password')
         
-        if username == os.environ.get('ADMIN_USERNAME') and password == os.environ.get('ADMIN_PASSWORD'):
+        if username == os.getenv('ADMIN_USERNAME') and password == os.getenv('ADMIN_PASSWORD'):
             session['logged_in'] = True
             return jsonify({"success": True})
         return jsonify({"success": False, "error": "Invalid administrative credentials"}), 401
@@ -630,4 +629,5 @@ def generate_roadmap():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Ensure tables exist
-    app.run(host='0.0.0.0', debug=True, port=8000)
+    port = int(os.environ.get('PORT', 5001))
+    app.run(host='0.0.0.0', debug=True, port=port)
