@@ -792,6 +792,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- 11. Dynamic Backend Bridge (GitHub Pages Support) ----
+    const adminLinks = document.querySelectorAll('a[href="/admin/login"], a[href="/admin/dashboard"], .staff-login-link');
+    const backendModal = document.getElementById('backend-modal');
+    const railwayInput = document.getElementById('railway-url-input');
+    const saveBackendBtn = document.getElementById('save-backend-url');
+    const closeBackendBtn = document.getElementById('close-backend-modal');
+    const cancelBackendBtn = document.getElementById('cancel-backend');
+
+    const isStaticHost = window.location.hostname.includes('github.io') || window.location.hostname.includes('netlify.app');
+
+    function getBackendUrl() {
+        return localStorage.getItem('admissionKart_backendUrl');
+    }
+
+    adminLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (isStaticHost) {
+                const bUrl = getBackendUrl();
+                if (bUrl) {
+                    e.preventDefault();
+                    window.location.href = `${bUrl.replace(/\/$/, '')}/admin/login`;
+                } else {
+                    e.preventDefault();
+                    if (backendModal) backendModal.style.display = 'flex';
+                }
+            }
+        });
+    });
+
+    if (saveBackendBtn) {
+        saveBackendBtn.addEventListener('click', () => {
+            let userUrl = railwayInput.value.trim();
+            if (userUrl) {
+                if (!userUrl.startsWith('http')) userUrl = 'https://' + userUrl;
+                localStorage.setItem('admissionKart_backendUrl', userUrl);
+                if (backendModal) backendModal.style.display = 'none';
+                alert("✅ Backend Connected! Redirecting to your secure Admin Panel...");
+                window.location.href = `${userUrl.replace(/\/$/, '')}/admin/login`;
+            } else {
+                alert("Please enter a valid Railway or Render URL.");
+            }
+        });
+    }
+
+    [closeBackendBtn, cancelBackendBtn].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                if (backendModal) backendModal.style.display = 'none';
+            });
+        }
+    });
+
     // Initialize UI
     fetchUniversities();
     saveAndRenderShortlist();
