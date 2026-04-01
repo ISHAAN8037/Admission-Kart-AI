@@ -61,6 +61,7 @@ def admin_logout():
 # ---- Admin Controllers ----
 
 @app.route('/admin/leads', methods=['GET'])
+@app.route('/admin/dashboard', methods=['GET']) # Alias for Production Dashboard
 @login_required
 def admin_leads():
     leads = LeadModel.query.order_by(LeadModel.created_at.desc()).all()
