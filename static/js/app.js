@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("🚀 Admission Kart AI Platform [v1.2] - Admin Command Center Active");
+    console.log("🚀 Admission Kart AI Platform [v1.3] - Admin Command Center Active");
 
     // ---- 1. Sticky Navbar ----
     const navbar = document.querySelector('.navbar');
@@ -792,8 +792,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    console.log("🚀 Admission Kart AI Platform [v1.3] - Dynamic Bridge Active");
+
     // ---- 11. Dynamic Backend Bridge (GitHub Pages Support) ----
-    const adminLinks = document.querySelectorAll('a[href="/admin/login"], a[href="/admin/dashboard"], .staff-login-link');
+    const adminLinks = document.querySelectorAll('a[href="/admin/login"], a[href="/admin/dashboard"], .staff-login-link, .footer-admin-link');
     const backendModal = document.getElementById('backend-modal');
     const railwayInput = document.getElementById('railway-url-input');
     const saveBackendBtn = document.getElementById('save-backend-url');
@@ -801,6 +803,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBackendBtn = document.getElementById('cancel-backend');
 
     const isStaticHost = window.location.hostname.includes('github.io') || window.location.hostname.includes('netlify.app');
+    console.log("📍 Host Check:", window.location.hostname, "| Static Mode:", isStaticHost);
 
     function getBackendUrl() {
         return localStorage.getItem('admissionKart_backendUrl');
@@ -808,14 +811,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     adminLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+            console.log("🖱️ Admin Link Clicked | Static:", isStaticHost);
             if (isStaticHost) {
                 const bUrl = getBackendUrl();
+                console.log("🔗 Saved Backend URL:", bUrl);
                 if (bUrl) {
                     e.preventDefault();
                     window.location.href = `${bUrl.replace(/\/$/, '')}/admin/login`;
                 } else {
                     e.preventDefault();
-                    if (backendModal) backendModal.style.display = 'flex';
+                    if (backendModal) {
+                        console.log("🔓 Opening Backend Connection Modal...");
+                        backendModal.style.display = 'flex';
+                    } else {
+                        console.error("❌ backend-modal element not found in DOM!");
+                    }
                 }
             }
         });
